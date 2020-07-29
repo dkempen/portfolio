@@ -1,0 +1,16 @@
+<mat-toolbar class="mat-elevation-z5" color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <p>Daan van Kempen - Software Engineer</p>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <mat-slide-toggle [matTooltip]="tooltipText" (change)="onSliderToggle($event.checked)">
+      <mat-icon>brightness_4</mat-icon>
+    </mat-slide-toggle>
+    <div>
+      <button mat-icon-button matTooltip="{{'header.changeNl' | translate}}" (click)="useLanguage('nl')">
+        <div class="flag-icon flag-icon-nl"></div>
+      </button>
+      <button mat-icon-button matTooltip="{{'header.changeEn' | translate}}" (click)="useLanguage('en')">
+        <div class="flag-icon flag-icon-gb"></div>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
