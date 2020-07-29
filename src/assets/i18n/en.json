@@ -1,0 +1,11 @@
+{
+  "header": {
+    "darkModeOn": "Turn off dark mode",
+    "darkModeOff": "Turn on dark mode",
+    "changeNl": "Change language to Dutch",
+    "changeEn": "Change language to English"
+  },
+  "footer": {
+    "text": "Designed and coded by Daan van Kempen © {{year}}"
+  }
+}

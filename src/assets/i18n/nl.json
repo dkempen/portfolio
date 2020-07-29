@@ -1,0 +1,11 @@
+{
+  "header": {
+    "darkModeOn": "Donkere modus uit",
+    "darkModeOff": "Donkere modus aan",
+    "changeNl": "Verander taal naar Nederlands",
+    "changeEn": "Verander taal naar Engels"
+  },
+  "footer": {
+    "text": "Ontworpen en geprogrammeerd door Daan van Kempen © {{year}}"
+  }
+}
