@@ -1,11 +1,21 @@
 {
-  "header": {
-    "darkModeOn": "Donkere modus uit",
-    "darkModeOff": "Donkere modus aan",
-    "changeNl": "Verander taal naar Nederlands",
-    "changeEn": "Verander taal naar Engels"
-  },
   "footer": {
     "text": "Ontworpen en geprogrammeerd door Daan van Kempen © {{year}}"
+  },
+  "header": {
+    "changeEn": "Verander taal naar Engels",
+    "changeNl": "Verander taal naar Nederlands",
+    "darkModeOff": "Nacht modus aan",
+    "darkModeOn": "Nacht modus uit",
+    "title": "Software Ontwikkelaar"
+  },
+  "portfolio": {
+    "about": "Over mij",
+    "intro": "Hallo, Ik ben Daan!\nIk ben een software ontwikkelaar en in mijn laatste jaar bij Avans Hogeschool Technische Informatica. Op het moment ben ik werkzaam als software engineer bij Hopenbrouwers Techniek B.V.",
+    "nasa": "NASA - Astronomie foto van de dag:",
+    "typewriter1": "Software ontwikkelaar...",
+    "typewriter2": "Full-stack ontwikkelaar...",
+    "typewriter3": "Student bij Avans Hogeschool Technische Informatica...",
+    "typewriter4": "Altijd bezig met expirimenteren en ontdekken..."
   }
 }

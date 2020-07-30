@@ -1,11 +1,36 @@
-<p>portfolio works!</p>
-<button mat-raised-button>Basic</button>
-<button mat-raised-button color="primary">Primary</button>
-<button mat-raised-button color="accent">Accent</button>
-<button mat-raised-button color="warn">Warn</button>
-<button mat-raised-button disabled>Disabled</button>
-<a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-<br>
-<br>
-<p class="fab fa-github"></p>
-<p class="fab fa-linkedin"></p>
+<section class="title border-bottom">
+  <div class="full-height flex">
+    <mat-card class="padding center center-text info mat-elevation-z5">
+      <h1 class="name">Daan van Kempen</h1>
+      <app-typewriter [text]="typewriterText"></app-typewriter>
+    </mat-card>
+    <mat-card *ngIf="apod" class="border">
+      <p class="apod no-margin">{{ 'portfolio.nasa' | translate }}<br />{{apod.title}}</p>
+    </mat-card>
+  </div>
+  <div class="background">
+    <img *ngIf="apod" class="asyncImage title" [src]="apodSource" [title]="apod?.title" [alt]="apod?.explanation"
+      (load)="onImageLoad()">
+  </div>
+</section>
+<section class="top-bot-padding">
+  <div class="center center-text third-width">
+    <h1>{{ 'portfolio.about' | translate }}</h1>
+    <p class="linebreaks">{{ 'portfolio.intro' | translate }}</p>
+  </div>
+</section>
+<section class="center-text column">
+  <h1>Contact</h1>
+  <div class="center center-vertical row" fxLayoutGap="var(--gap)">
+    <a mat-fab class="large" href="https://github.com/dkempen" target="_blank" [matTooltip]="'GitHub'">
+      <i class="fab fa-github"></i>
+    </a>
+    <a mat-fab class="large" href="https://www.linkedin.com/in/daan-van-kempen" target="_blank"
+      [matTooltip]="'LinkedIn'">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a mat-fab class="large" href="mailto:daan.vankempen2@gmail.com" target="_blank" [matTooltip]="'Mail'">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</section>

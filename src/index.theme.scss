@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@mixin index-theme($theme) {
+
+  $background: map-get($theme, background);
+
+  router-outlet+*:not(app-footer) {
+    background-color: mat-color($background, background);
+  }
+}

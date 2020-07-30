@@ -1,11 +1,21 @@
 {
-  "header": {
-    "darkModeOn": "Turn off dark mode",
-    "darkModeOff": "Turn on dark mode",
-    "changeNl": "Change language to Dutch",
-    "changeEn": "Change language to English"
-  },
   "footer": {
     "text": "Designed and coded by Daan van Kempen © {{year}}"
+  },
+  "header": {
+    "changeEn": "Change language to English",
+    "changeNl": "Change language to Dutch",
+    "darkModeOff": "Turn on night mode",
+    "darkModeOn": "Turn off night mode",
+    "title": "Software Engineer"
+  },
+  "portfolio": {
+    "about": "About",
+    "intro": "Hello, I'm Daan!\nI'm a software engineer and in my final year at Avans University of Applied Sciences. At the moment I am working as a software engineer at Hopenbrouwers Techniek B.V.",
+    "nasa": "NASA - Astronomy picture of the day:",
+    "typewriter1": "Software engineer...",
+    "typewriter2": "Full-stack developer...",
+    "typewriter3": "Student at Avans University of Applied Sciences...",
+    "typewriter4": "Always experimenting and discovering..."
   }
 }
