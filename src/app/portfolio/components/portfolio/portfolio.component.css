@@ -1,0 +1,62 @@
+.title {
+  height: 500px;
+  max-height: 40vh;
+  position: relative;
+}
+
+.info {
+  z-index: 1;
+  max-width: 80vw;
+}
+
+.background {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: inherit;
+  height: -webkit-fill-available;
+}
+
+img.title {
+  width: inherit;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0);
+}
+
+.apod {
+  z-index: 1;
+  color: white;
+  opacity: 50%;
+  text-align: end;
+}
+
+.border {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: var(--paddingSmall);
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.mat-card {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.name {
+  font-size: 4rem;
+  color: white;
+  line-height: initial;
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 2rem;
+  }
+}
+
+.fab,
+.fas {
+  transform: translateY(-4px);
+}

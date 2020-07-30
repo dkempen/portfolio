@@ -1,0 +1,24 @@
+div {
+  border: solid #13A10E 2px;
+  background: #0C0C0C;
+  border-radius: 5px;
+  text-align: start;
+}
+
+p {
+  color: #CCCCCC;
+  margin: 5px;
+  font-family: Consolas, "Courier New", Courier;
+}
+
+.host {
+  color: #13A10E;
+}
+
+.tilde {
+  color: #3B78FF;
+}
+
+.cursor {
+  color: #FFFFFF;
+}
