@@ -9,6 +9,11 @@
   max-width: 80vw;
 }
 
+.typewriter-wrapper {
+  width: min-content;
+  min-width: -webkit-fill-available;
+}
+
 .background {
   left: 0;
   top: 0;
@@ -26,8 +31,9 @@ img.title {
 .apod {
   z-index: 1;
   color: white;
-  opacity: 50%;
+  opacity: 0.5;
   text-align: end;
+  font-size: 10px;
 }
 
 .border {
@@ -53,6 +59,12 @@ img.title {
 @media (max-width: 768px) {
   .name {
     font-size: 2rem;
+  }
+}
+
+@media (max-height: 576px) {
+  .title {
+    max-height: 66vh;
   }
 }
 

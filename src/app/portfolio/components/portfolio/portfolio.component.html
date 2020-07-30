@@ -2,7 +2,9 @@
   <div class="full-height flex">
     <mat-card class="padding center center-text info mat-elevation-z5">
       <h1 class="name">Daan van Kempen</h1>
-      <app-typewriter [text]="typewriterText"></app-typewriter>
+      <div class="typewriter-wrapper">
+        <app-typewriter [text]="typewriterText"></app-typewriter>
+      </div>
     </mat-card>
     <mat-card *ngIf="apod" class="border">
       <p class="apod no-margin">{{ 'portfolio.nasa' | translate }}<br />{{apod.title}}</p>
