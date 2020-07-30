@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// Locale
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import { SharedModule } from './shared/shared.module';
+import { UiModule } from './ui/ui.module';
+import { PortfolioModule } from './portfolio/portfolio.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
-
-import { UiModule } from './ui/ui.module';
-import { PortfolioModule } from './portfolio/portfolio.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 
 export class DynamicLocaleId extends String {
   locale: string;
@@ -31,6 +31,7 @@ export class DynamicLocaleId extends String {
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    SharedModule,
     UiModule,
     PortfolioModule,
     HttpClientModule,

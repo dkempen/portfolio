@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json ./src/assets/i18n/nl.json --clean --sort --format namespaced-json --key-as-default-value"
   },
   "private": true,
   "dependencies": {
@@ -16,13 +17,14 @@
     "@angular/common": "~9.1.4",
     "@angular/compiler": "~9.1.4",
     "@angular/core": "~9.1.4",
-    "@angular/flex-layout": "^10.0.0-beta.32",
+    "@angular/flex-layout": "^9.0.0-beta.31",
     "@angular/forms": "~9.1.4",
     "@angular/localize": "^9.1.12",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
@@ -37,6 +39,7 @@
     "@angular/cli": "~9.1.4",
     "@angular/compiler-cli": "~9.1.4",
     "@angular/language-service": "~9.1.4",
+    "@biesbjerg/ngx-translate-extract": "^7.0.2",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",

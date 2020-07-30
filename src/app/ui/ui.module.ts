@@ -7,13 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AppComponent } from '../app.component';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../app.module';
-import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,20 +26,12 @@ import { HttpClient } from '@angular/common/http';
     FormsModule,
     MatButtonModule,
     MatToolbarModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    TranslateModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent
   ],
-  providers: [
-    AppComponent
-  ]
+  providers: []
 })
 export class UiModule { }
