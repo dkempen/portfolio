@@ -17,7 +17,7 @@ export class CookieService {
     }
 
     getCookie(): Cookie {
-        let cookieString = this.cookieService.get(this.cookieName);
+        const cookieString = this.cookieService.get(this.cookieName);
         let cookie: Cookie = null;
         if (cookieString === '') {
             cookie = new Cookie();

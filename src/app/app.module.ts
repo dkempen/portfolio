@@ -6,6 +6,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import firebase from 'firebase/app';
+import { environment } from 'src/environments/environment';
+
 import { SharedModule } from './shared/shared.module';
 import { UiModule } from './ui/ui.module';
 import { PortfolioModule } from './portfolio/portfolio.module';
@@ -22,6 +25,12 @@ export class DynamicLocaleId extends String {
   toString() {
     return this.locale;
   }
+}
+
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(environment.firebaseConfig);
+  firebase.analytics();
 }
 
 @NgModule({

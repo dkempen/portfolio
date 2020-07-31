@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.translate.onLangChange.subscribe(async () => {
-      this.nightModeOn = await this.translate.get("header.darkModeOn").pipe().toPromise();
-      this.nightModeOff = await this.translate.get("header.darkModeOff").pipe().toPromise();
+      this.nightModeOn = await this.translate.get('header.darkModeOn').pipe().toPromise();
+      this.nightModeOff = await this.translate.get('header.darkModeOff').pipe().toPromise();
       this.setTooltip();
     });
 

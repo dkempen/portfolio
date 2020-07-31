@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateService } from '@ngx-translate/core';
-import * as moment from 'moment';
+import moment from 'moment';
+import firebase from 'firebase/app';
+import 'firebase/analytics';
 
 import { ApodApiService } from 'src/app/shared/services/apod-api.service';
 import { Apod } from 'src/app/shared/models/apod';
@@ -21,7 +23,8 @@ export class PortfolioComponent implements OnInit {
   title: string;
   private readonly typewriterSuffix = '...';
 
-  constructor(private apodApiService: ApodApiService, private translate: TranslateService,
+  constructor(
+    private apodApiService: ApodApiService, private translate: TranslateService,
     private cookieService: CookieService, private titleService: Title) { }
 
   async ngOnInit() {
@@ -30,20 +33,21 @@ export class PortfolioComponent implements OnInit {
     if (apod?.url === undefined && (this.cookieService.getApodDate() === undefined
       || moment(this.cookieService.getApodDate()).add(1, 'hours').toDate() < new Date())) {
       // Then grab one
-      this.apodApiService.getApod().subscribe(async (apod: Apod) => {
+      this.apodApiService.getApod().subscribe(async (newApod: Apod) => {
         // If the picture of the day is a video for some reason, grab yesterdays one
-        if (apod.media_type !== 'image') {
-          const yesterday = await this.apodApiService.getApodYesterday(apod.date).toPromise();
+        if (newApod.media_type !== 'image') {
+          const yesterday = await this.apodApiService.getApodYesterday(newApod.date).toPromise();
           if (yesterday.media_type !== 'image') {
             // 2 pictures of the day that aren't pictures? All hope is lost. My API key can only take so much
             this.cookieService.setApod(new Apod());
             return;
           }
-          apod = yesterday;
+          newApod = yesterday;
         }
 
         // And save it
-        this.apod = apod;
+        console.log(newApod);
+        this.apod = newApod;
         this.apodSource = this.apod.url;
         this.cookieService.setApod(this.apod);
       });
@@ -63,13 +67,13 @@ export class PortfolioComponent implements OnInit {
   private async updateLanguageText() {
     this.typewriterText = [
       // TODO: globalize
-      await this.translate.get(marker("portfolio.typewriter1")).pipe().toPromise() + this.typewriterSuffix,
-      await this.translate.get(marker("portfolio.typewriter2")).pipe().toPromise() + this.typewriterSuffix,
-      await this.translate.get(marker("portfolio.typewriter3")).pipe().toPromise() + this.typewriterSuffix,
-      await this.translate.get(marker("portfolio.typewriter4")).pipe().toPromise() + this.typewriterSuffix
+      await this.translate.get(marker('portfolio.typewriter1')).pipe().toPromise() + this.typewriterSuffix,
+      await this.translate.get(marker('portfolio.typewriter2')).pipe().toPromise() + this.typewriterSuffix,
+      await this.translate.get(marker('portfolio.typewriter3')).pipe().toPromise() + this.typewriterSuffix,
+      await this.translate.get(marker('portfolio.typewriter4')).pipe().toPromise() + this.typewriterSuffix
     ];
 
-    this.title = 'Daan van Kempen - ' + await this.translate.get(marker("header.title")).pipe().toPromise();
+    this.title = 'Daan van Kempen - ' + await this.translate.get(marker('header.title')).pipe().toPromise();
     this.titleService.setTitle(this.title);
   }
 
@@ -77,5 +81,17 @@ export class PortfolioComponent implements OnInit {
     if (this.apodSource !== this.apod.hdurl) {
       this.apodSource = this.apod.hdurl;
     }
+  }
+
+  onGitHubClick() {
+    firebase.analytics().logEvent('github_clicked');
+  }
+
+  onLinkedInClick() {
+    firebase.analytics().logEvent('linkedin_clicked');
+  }
+
+  onMailClick() {
+    firebase.analytics().logEvent('mail_clicked');
   }
 }
