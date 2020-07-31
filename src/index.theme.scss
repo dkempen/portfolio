@@ -2,9 +2,18 @@
 
 @mixin index-theme($theme) {
 
+  $accent: map-get($theme, accent);
   $background: map-get($theme, background);
 
   router-outlet+*:not(app-footer) {
     background-color: mat-color($background, background);
+  }
+
+  a {
+    color: mat-color($accent);
+  }
+
+  a:visited {
+    color: mat-color($accent, darker);
   }
 }

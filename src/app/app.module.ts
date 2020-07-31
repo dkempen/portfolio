@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
@@ -43,7 +44,7 @@ export class DynamicLocaleId extends String {
       }
     })
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

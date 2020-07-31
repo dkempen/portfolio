@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
+import { UiModule } from '../ui/ui.module';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TypewriterComponent } from './components/typewriter/typewriter.component';
 
@@ -16,6 +17,7 @@ import { TypewriterComponent } from './components/typewriter/typewriter.componen
     TypewriterComponent
   ],
   imports: [
+    UiModule,
     CommonModule,
     HttpClientModule,
     MatButtonModule,

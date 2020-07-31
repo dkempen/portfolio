@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { AppComponent } from 'src/app/app.component';
+import { CookieService } from 'src/app/shared/services/cookie.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
 
-  nightMode = false;
-  nightModeOn: string;
-  nightModeOff: string;
-  tooltipText = this.nightModeOff;
+  nightMode = true;
+  private nightModeOn: string;
+  private nightModeOff: string;
+  tooltipText = this.nightModeOn;
 
-  constructor(public app: AppComponent, public translate: TranslateService) { }
+  constructor(private app: AppComponent, private translate: TranslateService, private cookieService: CookieService) { }
 
   async ngOnInit(): Promise<void> {
     this.translate.onLangChange.subscribe(async () => {
@@ -23,6 +25,8 @@ export class HeaderComponent implements OnInit {
       this.nightModeOff = await this.translate.get("header.darkModeOff").pipe().toPromise();
       this.setTooltip();
     });
+
+    this.nightMode = this.cookieService.getNightMode();
   }
 
   onSliderToggle() {
@@ -41,5 +45,6 @@ export class HeaderComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
+    this.cookieService.setLanguage(language);
   }
 }

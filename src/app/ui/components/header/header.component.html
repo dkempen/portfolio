@@ -1,6 +1,7 @@
-<mat-toolbar class="mat-elevation-z5" color="primary" fxLayout="row" fxLayoutAlign="space-between center"
-  style="min-height: 64px;">
-  <p class="no-margin" fxHide.xs>Daan van Kempen - {{ 'header.title' | translate }}</p>
+<mat-toolbar class="mat-elevation-z10" fxLayout="row" fxLayoutAlign="space-between center" style="min-height: 64px;">
+  <a [routerLink]="['']">
+    <p class="no-margin" fxHide.xs>Daan van Kempen - {{ 'header.title' | translate }}</p>
+  </a>
   <p class="no-margin" fxHide fxShow.xs>Daan van Kempen</p>
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="var(--gap)">
     <mat-slide-toggle [(ngModel)]="nightMode" [matTooltip]="tooltipText" (change)="onSliderToggle()">
@@ -16,3 +17,4 @@
     </div>
   </div>
 </mat-toolbar>
+<app-divider class="mat-elevation-z10"></app-divider>

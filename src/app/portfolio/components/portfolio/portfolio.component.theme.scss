@@ -3,14 +3,12 @@
 @mixin portfolio-component-theme($theme) {
 
   $background: map-get($theme, background);
-  $accent: map-get($theme, accent);
 
-  .background {
-    // background: mat-color($background, selected-disabled-button);
-    background: rgb(20, 20, 20);
+  .border {
+    background: rgba($color: mat-color($background, app-bar), $alpha: 0.4);
   }
 
-  .border-bottom {
-    border-bottom: solid mat-color($accent) 10px;
+  .border>p {
+    color: mat-color($background, text);
   }
 }

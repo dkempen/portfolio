@@ -9,13 +9,18 @@
     "darkModeOn": "Nacht modus uit",
     "title": "Software Ontwikkelaar"
   },
+  "notFound": {
+    "oops": "Oeps! Deze pagina bestaat niet",
+    "page": "pagina",
+    "try": "Je wilt misschien naar de "
+  },
   "portfolio": {
     "about": "Over mij",
-    "intro": "Hallo, Ik ben Daan!\nIk ben een software ontwikkelaar en in mijn laatste jaar bij Avans Hogeschool Technische Informatica. Op het moment ben ik werkzaam als software engineer bij Hopenbrouwers Techniek B.V.",
-    "nasa": "NASA - Astronomie foto van de dag:",
-    "typewriter1": "Software ontwikkelaar...",
-    "typewriter2": "Full-stack ontwikkelaar...",
-    "typewriter3": "Student bij Avans Hogeschool Technische Informatica...",
-    "typewriter4": "Altijd bezig met expirimenteren en ontdekken..."
+    "intro": "Hallo, Ik ben Daan!\nIk ben een software ontwikkelaar en in mijn laatste jaar bij Avans Hogeschool Technische Informatica. Op het moment ben ik werkzaam als software engineer bij Hoppenbrouwers Techniek B.V.",
+    "nasa": "NASA - Astronomie foto van de dag",
+    "typewriter1": "Software ontwikkelaar",
+    "typewriter2": "Full-stack ontwikkelaar",
+    "typewriter3": "Student bij Avans Hogeschool Technische Informatica",
+    "typewriter4": "Altijd bezig met expirimenteren en ontdekken"
   }
 }
