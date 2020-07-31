@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@mixin portfolio-component-theme($theme) {
+
+  $background: map-get($theme, background);
+
+  .border {
+    background: rgba($color: mat-color($background, app-bar), $alpha: 0.4);
+  }
+
+  .border>p {
+    color: mat-color($background, text);
+  }
+}
