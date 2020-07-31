@@ -1,0 +1,164 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+// Colors (http://mcg.mbitson.com/#!?blue=%2300378e&orange=%23ea5f00&red=%23c30000&grey=%23343434)
+$daan-blue: (50 : #e0e7f1,
+  100 : #b3c3dd,
+  200 : #809bc7,
+  300 : #4d73b0,
+  400 : #26559f,
+  500 : #00378e,
+  600 : #003186,
+  700 : #002a7b,
+  800 : #002371,
+  900 : #00165f,
+  A100 : #909fff,
+  A200 : #5d73ff,
+  A400 : #2a47ff,
+  A700 : #1031ff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  ));
+
+$daan-orange: (50 : #fcece0,
+  100 : #f9cfb3,
+  200 : #f5af80,
+  300 : #f08f4d,
+  400 : #ed7726,
+  500 : #ea5f00,
+  600 : #e75700,
+  700 : #e44d00,
+  800 : #e14300,
+  900 : #db3200,
+  A100 : #ffffff,
+  A200 : #ffd7cf,
+  A400 : #ffac9c,
+  A700 : #ff9783,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  ));
+
+$daan-red: (50 : #f8e0e0,
+  100 : #edb3b3,
+  200 : #e18080,
+  300 : #d54d4d,
+  400 : #cc2626,
+  500 : #c30000,
+  600 : #bd0000,
+  700 : #b50000,
+  800 : #ae0000,
+  900 : #a10000,
+  A100 : #ffcbcb,
+  A200 : #ff9898,
+  A400 : #ff6565,
+  A700 : #ff4c4c,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  ));
+
+$daan-grey: (50 : #e7e7e7,
+  100 : #c2c2c2,
+  200 : #9a9a9a,
+  300 : #717171,
+  400 : #525252,
+  500 : #343434,
+  600 : #2f2f2f,
+  700 : #272727,
+  800 : #212121,
+  900 : #151515,
+  A100 : #ef6e6e,
+  A200 : #ea4040,
+  A400 : #f60000,
+  A700 : #dd0000,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  ));
+
+// Color assignment
+// Light
+$portfolio-light-primary: mat-palette($daan-blue);
+$portfolio-light-accent: mat-palette($daan-orange);
+$portfolio-light-warn: mat-palette($daan-red);
+$portfolio-light-background: map_get($daan-grey, 50);
+
+// Dark
+$portfolio-dark-primary: mat-palette($daan-blue, 900);
+$portfolio-dark-accent: mat-palette($daan-orange);
+$portfolio-dark-warn: mat-palette($daan-red);
+$portfolio-dark-background: map_get($daan-grey, 900);
+
+// Theme objects
+// Light
+$portfolio-light-theme: mat-light-theme($portfolio-light-primary, $portfolio-light-accent, $portfolio-light-warn);
+$background: map-get($portfolio-light-theme, background);
+$background: map_merge($background, (background: $portfolio-light-background));
+$portfolio-light-theme: map_merge($portfolio-light-theme, (background: $background));
+
+// Dark
+$portfolio-dark-theme: mat-dark-theme($portfolio-dark-primary, $portfolio-dark-accent, $portfolio-dark-warn);
+$background: map-get($portfolio-dark-theme, background);
+$background: map_merge($background, (background: $portfolio-dark-background));
+$portfolio-dark-theme: map_merge($portfolio-dark-theme, (background: $background));
+
+// Include theme styles
+@include angular-material-theme($portfolio-light-theme);
+@include angular-material-theme($portfolio-dark-theme);

@@ -1,0 +1,20 @@
+<mat-toolbar class="mat-elevation-z10" fxLayout="row" fxLayoutAlign="space-between center" style="min-height: 64px;">
+  <a [routerLink]="['']">
+    <p class="no-margin" fxHide.xs>Daan van Kempen - {{ 'header.title' | translate }}</p>
+  </a>
+  <p class="no-margin" fxHide fxShow.xs>Daan van Kempen</p>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="var(--gap)">
+    <mat-slide-toggle [(ngModel)]="nightMode" [matTooltip]="tooltipText" (change)="onSliderToggle()">
+      <mat-icon>brightness_3</mat-icon>
+    </mat-slide-toggle>
+    <div>
+      <button mat-icon-button matTooltip="{{'header.changeNl' | translate}}" (click)="useLanguage('nl')">
+        <div class="flag-icon flag-icon-nl"></div>
+      </button>
+      <button mat-icon-button matTooltip="{{'header.changeEn' | translate}}" (click)="useLanguage('en')">
+        <div class="flag-icon flag-icon-gb"></div>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+<app-divider class="mat-elevation-z10"></app-divider>

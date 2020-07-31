@@ -1,0 +1,82 @@
+.title {
+  height: 500px;
+  max-height: 40vh;
+  position: relative;
+}
+
+.info {
+  z-index: 2;
+  max-width: 80vw;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.typewriter-wrapper {
+  width: min-content;
+  min-width: -webkit-fill-available;
+}
+
+.background {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: inherit;
+  height: -webkit-fill-available;
+  -webkit-mask-image: -webkit-linear-gradient(left,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.2) 100%);
+  mask-image: linear-gradient(to left,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.2) 100%);
+}
+
+img.title {
+  width: inherit;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0);
+}
+
+.apod {
+  z-index: 1;
+  opacity: 0.9;
+  text-align: end;
+  font-size: 10px;
+}
+
+.border {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+  padding: 5px;
+}
+
+.name {
+  font-size: 4rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .title {
+    max-height: 50vh;
+  }
+}
+
+@media (max-height: 576px) {
+  .title {
+    max-height: 66vh;
+  }
+}
+
+.fab,
+.fas {
+  transform: translateY(-4px);
+}

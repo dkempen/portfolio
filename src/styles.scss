@@ -1,0 +1,168 @@
+/* ======== Themes ======== */
+
+@import '~@angular/material/theming';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+@import './custom-theme';
+@import '../src/index.theme';
+@import '../src/app/ui/components/divider/divider.component.theme';
+@import '../src/app/ui/components/header/header.component.theme';
+@import '../src/app/ui/components/footer/footer.component.theme';
+@import '../src/app/portfolio/components/portfolio/portfolio.component.theme';
+
+@include mat-core();
+
+@mixin custom-components-theme($theme) {
+  @include index-theme($theme);
+  @include divider-component-theme($theme);
+  @include header-component-theme($theme);
+  @include footer-component-theme($theme);
+  @include portfolio-component-theme($theme);
+}
+
+.portfolio-light-theme {
+  @include angular-material-theme($portfolio-light-theme);
+  @include custom-components-theme($portfolio-light-theme);
+}
+
+.portfolio-dark-theme {
+  @include angular-material-theme($portfolio-dark-theme);
+  @include custom-components-theme($portfolio-dark-theme);
+}
+
+/* ======== Global variables ======== */
+
+:root {
+  --gap: 20px;
+  --gapSmall: 10px;
+  --padding: 20px;
+  --paddingSmall: 10px;
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+}
+
+/* ======== index.html ======== */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content-wrapper {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet+*:not(app-footer) {
+  flex: 1 0 auto;
+  margin: auto;
+  width: 100%;
+  padding-bottom: var(--padding);
+}
+
+router-outlet+app-footer {
+  display: none;
+}
+
+/* ======== Global styles ======== */
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  line-height: initial !important;
+}
+
+.flag-icon {
+  transform: scale(1.25);
+}
+
+section {
+  width: 100%;
+}
+
+.fab,
+.fas {
+  font-size: 2rem;
+}
+
+/* ======== Global classes ======== */
+
+.center-text {
+  text-align: center;
+}
+
+.center {
+  align-self: center;
+  margin: auto;
+}
+
+.center-vertical {
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.margin {
+  margin: var(--padding) !important;
+}
+
+.top-padding {
+  padding-top: var(--padding) !important;
+}
+
+.top-bot-padding {
+  padding: var(--padding) 0 var(--padding) 0 !important;
+}
+
+.padding {
+  padding: var(--padding) !important;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.third-width {
+  width: 33%;
+}
+
+@media (max-width: 768px) {
+  .third-width {
+    width: 80%;
+  }
+}
+
+.linebreaks {
+  white-space: pre-line;
+}
