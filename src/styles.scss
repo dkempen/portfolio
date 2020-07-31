@@ -4,16 +4,20 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 @import './custom-theme';
+@import '../src/index.theme';
+@import '../src/app/ui/components/divider/divider.component.theme';
+@import '../src/app/ui/components/header/header.component.theme';
 @import '../src/app/ui/components/footer/footer.component.theme';
 @import '../src/app/portfolio/components/portfolio/portfolio.component.theme';
-@import '../src/index.theme';
 
 @include mat-core();
 
 @mixin custom-components-theme($theme) {
+  @include index-theme($theme);
+  @include divider-component-theme($theme);
+  @include header-component-theme($theme);
   @include footer-component-theme($theme);
   @include portfolio-component-theme($theme);
-  @include index-theme($theme);
 }
 
 .portfolio-light-theme {
@@ -76,6 +80,7 @@ h1,
 h2,
 h3 {
   text-transform: uppercase;
+  line-height: initial !important;
 }
 
 .flag-icon {

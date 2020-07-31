@@ -5,8 +5,9 @@
 }
 
 .info {
-  z-index: 1;
+  z-index: 2;
   max-width: 80vw;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .typewriter-wrapper {
@@ -20,6 +21,16 @@
   position: absolute;
   width: inherit;
   height: -webkit-fill-available;
+  -webkit-mask-image: -webkit-linear-gradient(left,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.2) 100%);
+  mask-image: linear-gradient(to left,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.2) 100%);
 }
 
 img.title {
@@ -30,8 +41,7 @@ img.title {
 
 .apod {
   z-index: 1;
-  color: white;
-  opacity: 0.5;
+  opacity: 0.9;
   text-align: end;
   font-size: 10px;
 }
@@ -41,24 +51,22 @@ img.title {
   position: absolute;
   bottom: 0;
   right: 0;
-  margin: var(--paddingSmall);
+  margin: 5px;
   padding: 5px;
-  background: rgba(0, 0, 0, 0.5) !important;
-}
-
-.mat-card {
-  background: rgba(0, 0, 0, 0.75);
 }
 
 .name {
   font-size: 4rem;
   color: white;
-  line-height: initial;
 }
 
 @media (max-width: 768px) {
   .name {
     font-size: 2rem;
+  }
+
+  .title {
+    max-height: 50vh;
   }
 }
 

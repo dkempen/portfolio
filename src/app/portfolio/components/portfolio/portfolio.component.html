@@ -7,7 +7,8 @@
       </div>
     </mat-card>
     <mat-card *ngIf="apod" class="border">
-      <p class="apod no-margin">{{ 'portfolio.nasa' | translate }}<br />{{apod.title}}</p>
+      <p class="apod no-margin">{{apod.title}}<span fxHide.xs> (</span><br fxHide
+          fxShow.xs />{{ 'portfolio.nasa' | translate }}<span fxHide.xs>)</span></p>
     </mat-card>
   </div>
   <div class="background">
@@ -15,6 +16,7 @@
       (load)="onImageLoad()">
   </div>
 </section>
+<app-divider></app-divider>
 <section class="top-bot-padding">
   <div class="center center-text third-width">
     <h1>{{ 'portfolio.about' | translate }}</h1>
