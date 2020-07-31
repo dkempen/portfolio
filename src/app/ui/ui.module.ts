@@ -7,15 +7,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DividerComponent } from './components/divider/divider.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
+    DividerComponent
   ],
   imports: [
     CommonModule,
@@ -26,11 +31,13 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     MatButtonModule,
     MatToolbarModule,
-    TranslateModule
+    TranslateModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DividerComponent
   ],
   providers: []
 })

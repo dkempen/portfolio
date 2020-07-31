@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { TranslateService } from '@ngx-translate/core';
+import { CookieService } from './shared/services/cookie.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,19 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
-  light = 'portfolio-light-theme';
-  dark = 'portfolio-dark-theme';
-  theme = this.light;
+  private readonly light = 'portfolio-light-theme';
+  private readonly dark = 'portfolio-dark-theme';
+  theme = this.dark;
 
-  constructor(private overlayContainer: OverlayContainer, translate: TranslateService) {
+  constructor(private overlayContainer: OverlayContainer, translate: TranslateService, private cookieService: CookieService) {
     translate.setDefaultLang('en');
-    translate.use('nl');
+    translate.use(cookieService.getLanguage());
+    if (!cookieService.getNightMode()) {
+      this.theme = this.light;
+    }
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.overlayContainer.getContainerElement().classList.add(this.theme);
   }
 
@@ -28,11 +32,14 @@ export class AppComponent implements OnInit {
     } else {
       this.theme = this.light;
     }
+
     const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
     const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('-theme'));
     if (themeClassesToRemove.length) {
       overlayContainerClasses.remove(...themeClassesToRemove);
     }
     overlayContainerClasses.add(this.theme);
+
+    this.cookieService.setNightMode(dark);
   }
 }
