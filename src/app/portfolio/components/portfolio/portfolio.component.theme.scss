@@ -2,13 +2,15 @@
 
 @mixin portfolio-component-theme($theme) {
 
+  $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
+  $accent: map-get($theme, accent);
 
   .border {
     background: rgba($color: mat-color($background, app-bar), $alpha: 0.4);
   }
 
   .border>p {
-    color: mat-color($background, text);
+    color: mat-color($foreground, text);
   }
 }
