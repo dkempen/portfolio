@@ -10,11 +10,13 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { UiModule } from '../ui/ui.module';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TypewriterComponent } from './components/typewriter/typewriter.component';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   declarations: [
     PortfolioComponent,
-    TypewriterComponent
+    TypewriterComponent,
+    ProjectComponent
   ],
   imports: [
     UiModule,
@@ -28,7 +30,8 @@ import { TypewriterComponent } from './components/typewriter/typewriter.componen
   ],
   exports: [
     PortfolioComponent,
-    TypewriterComponent
+    TypewriterComponent,
+    ProjectComponent
   ],
   providers: [
     TranslatePipe

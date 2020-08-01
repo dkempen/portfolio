@@ -12,8 +12,8 @@
     </mat-card>
   </div>
   <div class="background">
-    <img *ngIf="apod" class="asyncImage title" [src]="apodSource" [title]="apod?.title" [alt]="apod?.explanation"
-      (load)="onImageLoad()">
+    <img *ngIf="apod" class="asyncImage title rellax" data-rellax-speed="2" [src]="apodSource" [title]="apod?.title"
+      [alt]="apod?.explanation" (load)="onImageLoad()">
   </div>
 </section>
 <app-divider></app-divider>
@@ -23,18 +23,25 @@
     <p class="linebreaks">{{ 'portfolio.intro' | translate }}</p>
   </div>
 </section>
-<section class="center-text column">
+<!-- <app-divider></app-divider>
+<section class="top-bot-padding center">
+  <h1>My projects</h1>
+  <div class="projects center two-thirds-width" ngClass.xs="projects-xs" ngClass.sm="projects-xs">
+    <app-project *ngFor="let p of projects"></app-project>
+  </div>
+</section> -->
+<section class="center column">
   <h1>Contact</h1>
   <div class="center center-vertical row" fxLayoutGap="var(--gap)">
-    <a mat-fab class="large" href="https://github.com/dkempen" target="_blank" [matTooltip]="'GitHub'"
+    <a mat-fab href="https://github.com/dkempen" target="_blank" rel="noopener" [matTooltip]="'GitHub'"
       (click)="onGitHubClick()">
       <i class="fab fa-github"></i>
     </a>
-    <a mat-fab class="large" href="https://www.linkedin.com/in/daan-van-kempen" target="_blank"
+    <a mat-fab href="https://www.linkedin.com/in/daan-van-kempen" target="_blank" rel="noopener"
       [matTooltip]="'LinkedIn'" (click)="onLinkedInClick()">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a mat-fab class="large" href="mailto:daan.vankempen2@gmail.com" target="_blank" [matTooltip]="'Mail'"
+    <a mat-fab href="mailto:daan.vankempen2@gmail.com" target="_blank" rel="noopener" [matTooltip]="'Mail'"
       (click)="onMailClick()">
       <i class="fas fa-envelope"></i>
     </a>

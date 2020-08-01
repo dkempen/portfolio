@@ -96,6 +96,23 @@ section {
   font-size: 2rem;
 }
 
+/* ======== Custom scrollbar ======== */
+
+$accent: map-get($portfolio-light-theme, accent);
+$background: map-get($portfolio-light-theme, background);
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: mat-color($background, selected-disabled-button);
+}
+
+::-webkit-scrollbar-thumb {
+  background: mat-color($accent);
+}
+
 /* ======== Global classes ======== */
 
 .center-text {
@@ -153,11 +170,22 @@ section {
   width: 100%;
 }
 
+.two-thirds-width {
+  width: 66%;
+}
+
+.half-width {
+  width: 50%;
+}
+
 .third-width {
   width: 33%;
 }
 
 @media (max-width: 768px) {
+
+  .two-thirds-width,
+  .half-width,
   .third-width {
     width: 80%;
   }
