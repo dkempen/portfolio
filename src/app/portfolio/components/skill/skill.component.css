@@ -1,0 +1,21 @@
+mat-card {
+  text-align: center;
+}
+
+i {
+  padding-bottom: var(--padding);
+}
+
+mat-card-title {
+  margin-bottom: var(--padding);
+}
+
+div {
+  padding-top: var(--paddingSmall);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}

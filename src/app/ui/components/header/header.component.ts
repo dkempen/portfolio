@@ -47,4 +47,8 @@ export class HeaderComponent implements OnInit {
     this.translate.use(language);
     this.cookieService.setLanguage(language);
   }
+
+  goTo(location: string) {
+    window.scrollTo({ top: document.getElementById(location).getBoundingClientRect().top - 50 });
+  }
 }

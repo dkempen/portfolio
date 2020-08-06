@@ -12,29 +12,48 @@
     </mat-card>
   </div>
   <div class="background">
-    <img *ngIf="apod" class="asyncImage title" [src]="apodSource" [title]="apod?.title" [alt]="apod?.explanation"
+    <img *ngIf="apod" class="asyncImage title" appParallax [ratio]="0.5" [src]="apodSource" [alt]="apod?.title"
       (load)="onImageLoad()">
   </div>
 </section>
 <app-divider></app-divider>
-<section class="top-bot-padding">
+<section id="about">
   <div class="center center-text third-width">
-    <h1>{{ 'portfolio.about' | translate }}</h1>
+    <h2>{{ 'portfolio.about' | translate }}</h2>
     <p class="linebreaks">{{ 'portfolio.intro' | translate }}</p>
   </div>
 </section>
-<section class="center-text column">
-  <h1>Contact</h1>
+<section id="skills">
+  <h2>{{ 'portfolio.skills' | translate }}</h2>
+  <div class="center half-width" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="var(--gap)">
+    <app-skill class="skill" *ngFor="let skill of skills" [skill]="skill" fxFlex
+      [attr.data-aos]="getSkillAnimation(skill)"></app-skill>
+  </div>
+</section>
+<section id="projects">
+  <h2>{{ 'portfolio.projects' | translate }}</h2>
+  <div class="center half-width" fxLayout="column" fxLayoutGap="var(--gap)">
+    <app-project class="project" *ngFor="let project of projects" [project]="project"
+      [attr.data-aos]="projects.indexOf(project) % 2 ? 'fade-up-left' : 'fade-up-right'">
+    </app-project>
+    <mat-card [attr.data-aos]="projects.length % 2 ? 'fade-up-left' : 'fade-up-right'">
+      <mat-card-subtitle class="center-text">{{ 'portfolio.comingSoon' | translate }}</mat-card-subtitle>
+    </mat-card>
+  </div>
+</section>
+<section class="column half-width" id="contact">
+  <h2>{{ 'portfolio.contact' | translate }}</h2>
+  <app-contact class="bot-padding" data-aos="fade-up"></app-contact>
   <div class="center center-vertical row" fxLayoutGap="var(--gap)">
-    <a mat-fab class="large" href="https://github.com/dkempen" target="_blank" [matTooltip]="'GitHub'"
+    <a mat-fab href="https://github.com/dkempen" target="_blank" rel="noopener" [matTooltip]="'GitHub'"
       (click)="onGitHubClick()">
       <i class="fab fa-github"></i>
     </a>
-    <a mat-fab class="large" href="https://www.linkedin.com/in/daan-van-kempen" target="_blank"
+    <a mat-fab href="https://www.linkedin.com/in/daan-van-kempen" target="_blank" rel="noopener"
       [matTooltip]="'LinkedIn'" (click)="onLinkedInClick()">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a mat-fab class="large" href="mailto:daan.vankempen2@gmail.com" target="_blank" [matTooltip]="'Mail'"
+    <a mat-fab href="mailto:info@daanvankempen.nl" target="_blank" rel="noopener" [matTooltip]="'Mail'"
       (click)="onMailClick()">
       <i class="fas fa-envelope"></i>
     </a>

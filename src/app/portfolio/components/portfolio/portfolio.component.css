@@ -37,6 +37,9 @@ img.title {
   width: inherit;
   object-fit: cover;
   background: rgba(0, 0, 0, 0);
+  min-height: 45vh;
+  position: absolute;
+  bottom: 0;
 }
 
 .apod {
@@ -58,15 +61,12 @@ img.title {
 .name {
   font-size: 4rem;
   color: white;
+  margin-bottom: 16px;
 }
 
 @media (max-width: 768px) {
   .name {
     font-size: 2rem;
-  }
-
-  .title {
-    max-height: 50vh;
   }
 }
 
@@ -74,9 +74,35 @@ img.title {
   .title {
     max-height: 66vh;
   }
+
+  img.title {
+    min-height: 75vh;
+  }
+}
+
+@media (min-width: 576px) {
+  ::ng-deep.project:nth-of-type(even) .image {
+    order: 1;
+  }
+
+  ::ng-deep.project:nth-of-type(odd) .content {
+    order: 2;
+  }
+
+  app-skill {
+    display: flex;
+    align-self: stretch !important;
+    content: attr(data-aos);
+  }
 }
 
 .fab,
 .fas {
   transform: translateY(-4px);
+}
+
+app-skill {
+  display: flex;
+  align-self: center;
+  min-height: max-content;
 }

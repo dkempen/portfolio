@@ -1,3 +1,21 @@
 .footer {
   padding: 20px;
+  position: relative;
+}
+
+#to-top-button {
+  position: absolute;
+  bottom: 8px;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#to-top-button.visible {
+  bottom: 80px;
+  opacity: 1;
+}
+
+.fas {
+  transform: translateY(-4px);
 }
