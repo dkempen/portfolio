@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+@mixin skill-component-theme($theme) {
+
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+
+  app-skill i,
+  app-skill h3 {
+    color: mat-color($accent);
+  }
+
+  app-skill div {
+    border-top: 1px solid mat-color($foreground, divider);
+    padding-top: var(--paddingSmall);
+  }
+}

@@ -1,18 +1,27 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Project Title</mat-card-title>
-    <mat-card-subtitle>Explanation of the project, which is a little longer</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Description...
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-raised-button color="accent" href="https://github.com/dkempen" target="_blank" rel="noopener"
-      [matTooltip]="'Live demo'"><i class="fas fa-eye"></i>Live demo</a>
-    <a mat-raised-button color="accent" href="https://github.com/dkempen" target="_blank" rel="noopener"
-      [matTooltip]="'View code'"><i class="fas fa-code"></i>View code</a>
-  </mat-card-actions>
+<mat-card fxLayout="row" fxLayout.xs="column" fxLayoutGap="var(--gap)">
+  <div class="image" fxFlex="40">
+    <img mat-card-image [src]="project.imagePath">
+  </div>
+  <div class="content" fxFlex>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of project.tags" disableRipple="true" selectable="false">{{ tag }}</mat-chip>
+    </mat-chip-list>
+    <p>{{ description }}</p>
+    <h3>{{ 'project.features' | translate }}:</h3>
+    <ul ngClass.xs="ul-xs">
+      <li *ngFor="let feature of features">{{ feature }}</li>
+    </ul>
+    <div class="buttons" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="var(--gap)">
+      <a mat-raised-button color="accent" ngClass.xs="button-xs"
+        [attr.href]="project.demoLink ? project.demoLink : null" target="_blank" rel="noopener"
+        matTooltip="{{'project.demo' | translate}}" [disabled]="!project.demoLink"><i class="fas fa-eye"></i>
+        {{'project.demo' | translate}}</a>
+      <a mat-raised-button color="accent" ngClass.xs="button-xs"
+        [attr.href]="project.codeLink ? project.codeLink : null" target="_blank" rel="noopener"
+        matTooltip="{{'project.code' | translate}}" [disabled]="!project.codeLink"><i class="fas fa-code"></i>
+        {{'project.code' | translate}}</a>
+    </div>
+  </div>
 </mat-card>

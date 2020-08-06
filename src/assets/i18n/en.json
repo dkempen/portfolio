@@ -1,13 +1,24 @@
 {
+  "contact": {
+    "email": "E-mail",
+    "error": "Something went wrong",
+    "invalidEmail": "This is not a valid e-mail address",
+    "mandatory": "This field is mandatory",
+    "message": "Message",
+    "name": "Name",
+    "submit": "Submit",
+    "thanks": "Thank you for your message!"
+  },
   "footer": {
-    "text": "Designed and coded by Daan van Kempen © {{year}}"
+    "text": "Designed and coded by Daan van Kempen © {{year}}",
+    "toTop": "Back to top"
   },
   "header": {
     "changeEn": "Change language to English",
     "changeNl": "Change language to Dutch",
     "darkModeOff": "Turn on night mode",
     "darkModeOn": "Turn off night mode",
-    "title": "Software Engineer"
+    "menu": "Menu"
   },
   "notFound": {
     "oops": "Oops! This page doesn't exist",
@@ -16,11 +27,24 @@
   },
   "portfolio": {
     "about": "About",
+    "comingSoon": "More projects coming soon...",
+    "contact": "Contact",
     "intro": "Hello, I'm Daan!\nI'm a software engineer and in my final year at Avans University of Applied Sciences. At the moment I am working as a software engineer at Hoppenbrouwers Techniek B.V.",
     "nasa": "NASA - Astronomy picture of the day",
+    "projects": "My projects",
+    "skills": "My skills",
     "typewriter1": "Software engineer",
-    "typewriter2": "Full-stack developer",
+    "typewriter2": "Full stack developer",
     "typewriter3": "Student at Avans University of Applied Sciences",
     "typewriter4": "Always experimenting and discovering"
+  },
+  "project": {
+    "code": "View Code",
+    "demo": "Live Demo",
+    "features": "Features"
+  },
+  "skill": {
+    "languages": "Languages",
+    "tools": "Tools"
   }
 }

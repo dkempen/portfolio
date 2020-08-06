@@ -1,12 +1,30 @@
 <mat-toolbar class="mat-elevation-z10" fxLayout="row" fxLayoutAlign="space-between center" style="min-height: 64px;">
-  <a [routerLink]="['']">
-    <p class="no-margin" fxHide.xs>Daan van Kempen - {{ 'header.title' | translate }}</p>
-  </a>
-  <p class="no-margin" fxHide fxShow.xs>Daan van Kempen</p>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="var(--gap)">
+    <button fxHide fxShow.lt-md mat-icon-button aria-label="Hamburger menu" matTooltip="{{'header.menu' | translate}}"
+      [matMenuTriggerFor]="menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <div [ngTemplateOutlet]="menuTemplate"></div>
+    </mat-menu>
+    <a [routerLink]="['']">
+      <p class="no-margin" fxHide.lt-lg>Daan van Kempen - Portfolio</p>
+      <p class="no-margin" fxHide fxHide.xs fxShow.lt-lg>Daan van Kempen</p>
+    </a>
+  </div>
+  <div class="navigation" fxShow fxHide.lt-md fxLayoutAlign="center stretch" fxLayoutGap="var(--gap)">
+    <div [ngTemplateOutlet]="menuTemplate"></div>
+  </div>
+  <ng-template #menuTemplate>
+    <p (click)="goTo('about')">{{ 'portfolio.about' | translate }}</p>
+    <p (click)="goTo('skills')">{{ 'portfolio.skills' | translate }}</p>
+    <p (click)="goTo('projects')">{{ 'portfolio.projects' | translate }}</p>
+    <p (click)="goTo('contact')">{{ 'portfolio.contact' | translate }}</p>
+  </ng-template>
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="var(--gap)">
     <label>
       <mat-slide-toggle [(ngModel)]="nightMode" [matTooltip]="tooltipText" (change)="onSliderToggle()">
-        <mat-icon>brightness_3</mat-icon>
+        <i class="fas fa-moon"></i>
       </mat-slide-toggle>
     </label>
     <div>

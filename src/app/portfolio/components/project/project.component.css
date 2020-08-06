@@ -1,25 +1,53 @@
-app-project {
-  display: flex;
+mat-card {
+  display: flex !important;
 }
 
-app-project>.mat-card {
-  width: -webkit-fill-available;
+mat-card-title {
+  text-transform: capitalize;
 }
 
-.mat-card-header-text {
-  margin: 0;
+mat-card-subtitle {
+  margin-bottom: var(--paddingSmall);
 }
 
 img {
   object-fit: cover;
-  max-height: 30rem;
-}
-
-mat-card-actions {
+  max-width: 100%;
+  max-height: inherit;
   margin: 0 !important;
+  display: block;
+  border-radius: 5px !important;
 }
 
-.mat-raised-button .mat-button-wrapper>* {
+::ng-deep.mat-chip-list-wrapper {
+  padding-bottom: var(--paddingSmall);
+}
+
+.mat-standard-chip::after {
+  background-color: transparent !important;
+}
+
+ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.ul-xs {
+  columns: 1;
+  -webkit-columns: 1;
+  -moz-columns: 1;
+}
+
+.buttons {
+  display: flex;
+}
+
+::ng-deep.mat-raised-button i {
   font-size: 1.5rem !important;
   padding-right: var(--paddingSmall);
+}
+
+.button-xs {
+  min-width: 150px;
 }

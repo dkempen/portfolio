@@ -1,0 +1,38 @@
+[{
+  "title": {
+    "en": "Portfolio website",
+    "nl": "Portfolio website"
+  },
+  "subtitle": {
+    "en": "A fully responsive website showcasing projects I have built.",
+    "nl": "Een volledig responsieve website met projecten die ik heb gebouwd."
+  },
+  "description": {
+    "en": "A fully custom built website to showcase my projects and experience as a software engineer.",
+    "nl": "Een volledig op maat gemaakte website om mijn projecten en ervaring als software engineer te laten zien."
+  },
+  "features": {
+    "en": [
+      "Responsive design",
+      "Multilanguage",
+      "API communication",
+      "Animations",
+      "Modular architecture"
+    ],
+    "nl": [
+      "Responsief ontwerp",
+      "Meertalig",
+      "API communicatie",
+      "Animaties",
+      "Modulaire architectuur"
+    ]
+  },
+  "tags": [
+    "Angular",
+    "HTML",
+    "CSS"
+  ],
+  "codeLink": "https://github.com/dkempen/portfolio",
+  "demoLink": "https://daanvankempen.nl",
+  "imagePath": "assets/images/portfolio-website.jpg"
+}]

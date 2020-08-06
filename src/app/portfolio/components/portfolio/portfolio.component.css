@@ -37,7 +37,9 @@ img.title {
   width: inherit;
   object-fit: cover;
   background: rgba(0, 0, 0, 0);
-  min-height: 49vh;
+  min-height: 45vh;
+  position: absolute;
+  bottom: 0;
 }
 
 .apod {
@@ -62,14 +64,6 @@ img.title {
   margin-bottom: 16px;
 }
 
-h1.name:before {
-  content: none !important;
-}
-
-h1.name:after {
-  content: none !important;
-}
-
 @media (max-width: 768px) {
   .name {
     font-size: 2rem;
@@ -82,7 +76,23 @@ h1.name:after {
   }
 
   img.title {
-    min-height: 92vh;
+    min-height: 75vh;
+  }
+}
+
+@media (min-width: 576px) {
+  ::ng-deep.project:nth-of-type(even) .image {
+    order: 1;
+  }
+
+  ::ng-deep.project:nth-of-type(odd) .content {
+    order: 2;
+  }
+
+  app-skill {
+    display: flex;
+    align-self: stretch !important;
+    content: attr(data-aos);
   }
 }
 
@@ -91,18 +101,8 @@ h1.name:after {
   transform: translateY(-4px);
 }
 
-.projects {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 50% 50%;
-  justify-items: stretch;
-  align-items: stretch;
-}
-
-.projects-xs {
-  grid-template-columns: 100%;
-}
-
-app-project {
-  min-height: 20rem;
+app-skill {
+  display: flex;
+  align-self: center;
+  min-height: max-content;
 }

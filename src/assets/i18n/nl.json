@@ -1,13 +1,24 @@
 {
+  "contact": {
+    "email": "E-mail",
+    "error": "Er is iets fout gegaan",
+    "invalidEmail": "Dit is geen geldig e-mailadres",
+    "mandatory": "Dit veld is verplicht",
+    "message": "Bericht",
+    "name": "Naam",
+    "submit": "Verzenden",
+    "thanks": "Bedankt voor je bericht!"
+  },
   "footer": {
-    "text": "Ontworpen en geprogrammeerd door Daan van Kempen © {{year}}"
+    "text": "Ontworpen en geprogrammeerd door Daan van Kempen © {{year}}",
+    "toTop": "Terug naar boven"
   },
   "header": {
     "changeEn": "Verander taal naar Engels",
     "changeNl": "Verander taal naar Nederlands",
     "darkModeOff": "Nacht modus aan",
     "darkModeOn": "Nacht modus uit",
-    "title": "Software Ontwikkelaar"
+    "menu": "Menu"
   },
   "notFound": {
     "oops": "Oeps! Deze pagina bestaat niet",
@@ -16,11 +27,24 @@
   },
   "portfolio": {
     "about": "Over mij",
+    "comingSoon": "Binnenkort meer projecten...",
+    "contact": "Contact",
     "intro": "Hallo, Ik ben Daan!\nIk ben een software ontwikkelaar en in mijn laatste jaar bij Avans Hogeschool Technische Informatica. Op het moment ben ik werkzaam als software engineer bij Hoppenbrouwers Techniek B.V.",
     "nasa": "NASA - Astronomie foto van de dag",
+    "projects": "Mijn projecten",
+    "skills": "Mijn vaardigheden",
     "typewriter1": "Software ontwikkelaar",
-    "typewriter2": "Full-stack ontwikkelaar",
+    "typewriter2": "Full stack ontwikkelaar",
     "typewriter3": "Student bij Avans Hogeschool Technische Informatica",
     "typewriter4": "Altijd bezig met expirimenteren en ontdekken"
+  },
+  "project": {
+    "code": "Bekijk Code",
+    "demo": "Live Demo",
+    "features": "Functies"
+  },
+  "skill": {
+    "languages": "Talen",
+    "tools": "Hulpmiddelen"
   }
 }
