@@ -1,3 +1,7 @@
 <div class="footer center-text" fxLayoutAlign="center center">
   <p class="no-margin">{{ 'footer.text' | translate:{year: year} }}</p>
+  <button id="to-top-button" [ngClass]="{'visible' : scrolledToBottom}" mat-fab color="accent"
+    aria-label="Scroll back to the top of the page" matTooltip="{{ 'footer.toTop' | translate }}" (click)="toTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </div>

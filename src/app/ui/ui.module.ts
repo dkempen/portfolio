@@ -5,6 +5,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
@@ -28,8 +29,9 @@ import { DividerComponent } from './components/divider/divider.component';
     MatIconModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    FormsModule,
     MatButtonModule,
+    FormsModule,
+    MatMenuModule,
     MatToolbarModule,
     TranslateModule,
     RouterModule
