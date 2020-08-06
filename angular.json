@@ -27,10 +27,11 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.scss",
-              "node_modules/flag-icon-css/css/flag-icon.min.css"
+              "node_modules/flag-icon-css/css/flag-icon.min.css",
+              "node_modules/aos/dist/aos.css"
             ],
             "scripts": [
-              "node_modules/rellax/rellax.min.js"
+              "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {

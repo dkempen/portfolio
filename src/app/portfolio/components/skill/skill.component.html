@@ -1,0 +1,17 @@
+<mat-card fxLayout="column" fxFlex>
+  <i class="fas" [ngClass]="'fa-' + skill.icon"></i>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <mat-card-subtitle>{{ description }}</mat-card-subtitle>
+  <div *ngIf="skill.languages.length !== 0">
+    <h3>{{ 'skill.languages' | translate }}:</h3>
+    <ul>
+      <li *ngFor="let language of skill.languages">{{ language }}</li>
+    </ul>
+  </div>
+  <div>
+    <h3>{{ 'skill.tools' | translate }}:</h3>
+    <ul>
+      <li *ngFor="let tool of skill.tools">{{ tool }}</li>
+    </ul>
+  </div>
+</mat-card>
