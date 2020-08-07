@@ -1,5 +1,5 @@
 <mat-card fxLayout="column" fxFlex>
-  <form *ngIf="!succeeded" [formGroup]="contactForm" fxLayout="column" fxLayoutGap="var(--gap)">
+  <form *ngIf="!succeeded" [formGroup]="contactForm" fxLayout="column">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="var(--gap)">
       <mat-form-field color="accent" appearance="outline" fxFlex>
         <mat-label>{{ 'contact.name' | translate }}</mat-label>
