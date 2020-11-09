@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { AppComponent } from 'src/app/app.component';
@@ -17,7 +18,9 @@ export class HeaderComponent implements OnInit {
   private nightModeOff: string;
   tooltipText = this.nightModeOn;
 
-  constructor(private app: AppComponent, private translate: TranslateService, private cookieService: CookieService) { }
+  constructor(
+    private app: AppComponent, private translate: TranslateService,
+    private cookieService: CookieService, public router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.translate.onLangChange.subscribe(async () => {

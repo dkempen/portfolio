@@ -11,7 +11,8 @@
       "C#",
       "C++",
       "C",
-      "Java"
+      "Java",
+      "Python"
     ],
     "tools": [
       ".NET Core 3.1",
@@ -20,6 +21,7 @@
       "REST API",
       "Visual Studio",
       "IntelliJ IDEA",
+      "PyCharm",
       "Linux"
     ],
     "icon": "server"
