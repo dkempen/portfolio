@@ -1,58 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import firebase from 'firebase/app';
-import 'firebase/analytics';
-
-import { FormspreeService } from 'src/app/shared/services/formspree.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FirebaseService } from '../../../core/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
+  contacts: Contact[] = [
+    {
+      name: 'GitHub',
+      uri: 'https://github.com/dkempen',
+      callback: 'github_clicked',
+      icon: 'bi-github',
+    },
+    {
+      name: 'LinkedIn',
+      uri: 'https://www.linkedin.com/in/daan-van-kempen',
+      callback: 'linkedin_clicked',
+      icon: 'bi-linkedin',
+    },
+    {
+      name: 'Email',
+      uri: 'mailto:info@daanvankempen.nl',
+      callback: 'mail_clicked',
+      icon: 'bi-envelope-fill',
+    },
+  ];
 
-  contactForm: FormGroup;
-  submitting = false;
-  error = false;
-  succeeded = false;
+  constructor(private firebaseService: FirebaseService) {}
 
-  constructor(private formspreeService: FormspreeService) { }
-
-  ngOnInit() {
-    this.contactForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      email: new FormControl(null, Validators.required),
-      message: new FormControl(null, Validators.required),
-      gotcha: new FormControl()
-    });
+  onContactClick(type: string) {
+    this.firebaseService.logEvent(type);
   }
+}
 
-  onSumbitButton() {
-    if (this.contactForm.get('gotcha').value !== null) {
-      // Honeypot
-      this.error = true;
-      return;
-    }
-
-    this.submitting = true;
-    this.error = false;
-    const formName = this.contactForm.get('name').value;
-    const formEmail = this.contactForm.get('email').value;
-    const formMessage = this.contactForm.get('message').value;
-    this.formspreeService.onSumbitButton(formName, formEmail, formMessage).subscribe(() => {
-      this.submitting = false;
-      this.succeeded = true;
-      firebase.analytics().logEvent('form_submitted',
-        {
-          name: formName,
-          email: formEmail,
-          message: formMessage
-        });
-    }, () => {
-      this.submitting = false;
-      this.error = true;
-    }
-    );
-  }
+interface Contact {
+  name: string;
+  uri: string;
+  callback: string;
+  icon: string;
 }

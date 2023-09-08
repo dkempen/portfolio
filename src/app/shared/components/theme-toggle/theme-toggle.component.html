@@ -1,0 +1,10 @@
+<button
+  class="btn btn-link btn-round"
+  [ngSwitch]="theme$ | async"
+  [ngbTooltip]="'theme.switch' | translate"
+  (click)="onClick()"
+>
+  <i class="bi bi-moon-stars" *ngSwitchCase="themes.Dark"></i>
+  <i class="bi bi-brightness-high-fill" *ngSwitchCase="themes.Light"></i>
+  <i class="bi bi-circle-half" *ngSwitchCase="themes.Auto"></i>
+</button>

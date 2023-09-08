@@ -1,233 +1,116 @@
-/* ======== Themes ======== */
+/* Imports */
 
-@import '~@angular/material/theming';
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import "/src/variables.scss";
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
+@import "flag-icons/css/flag-icons.min.css";
 
-@import './custom-theme';
-@import '../src/index.theme';
-@import '../src/app/ui/components/divider/divider.component.theme';
-@import '../src/app/ui/components/header/header.component.theme';
-@import '../src/app/ui/components/footer/footer.component.theme';
-@import '../src/app/portfolio/components/portfolio/portfolio.component.theme';
-@import '../src/app/portfolio/components/skill/skill.component.theme.scss';
-
-@include mat-core();
-
-@mixin custom-components-theme($theme) {
-  @include index-theme($theme);
-  @include divider-component-theme($theme);
-  @include header-component-theme($theme);
-  @include footer-component-theme($theme);
-  @include portfolio-component-theme($theme);
-  @include skill-component-theme($theme);
-}
-
-.portfolio-light-theme {
-  @include angular-material-theme($portfolio-light-theme);
-  @include custom-components-theme($portfolio-light-theme);
-}
-
-.portfolio-dark-theme {
-  @include angular-material-theme($portfolio-dark-theme);
-  @include custom-components-theme($portfolio-dark-theme);
-}
-
-/* ======== Global variables ======== */
-
-:root {
-  --gap: 20px;
-  --gapSmall: 10px;
-  --padding: 20px;
-  --paddingSmall: 10px;
-  --paddingExtraSmall: 5px;
-  --sm: 576px;
-  --md: 768px;
-  --lg: 992px;
-  --xl: 1200px;
-}
-
-/* ======== index.html ======== */
+/* Root styles */
 
 html,
 body {
   height: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.content-wrapper {
-  height: 100%;
-  padding: 0;
-  margin: 0;
+router-outlet + *:not(app-footer) {
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-router-outlet+*:not(app-footer) {
-  flex: 1 0 auto;
-  margin: auto;
-  width: 100%;
-  overflow: hidden;
-  padding-bottom: var(--padding);
+router-outlet:has(+ app-footer) {
+  flex-grow: 1;
 }
 
-router-outlet+app-footer {
-  display: none;
+/* Custom scrollbar */
+
+::-webkit-scrollbar {
+  width: $spacer;
 }
 
-/* ======== Global styles ======== */
+::-webkit-scrollbar-track {
+  @extend .bg-body-secondary;
+}
 
-h1,
-h2,
-h3 {
-  line-height: initial !important;
+::-webkit-scrollbar-thumb {
+  background: $primary;
+}
+
+/* Global styles */
+
+.btn-round {
+  border-radius: 50%;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+}
+
+.btn-link {
+  --bs-btn-color: var(--bs-body-color);
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba($primary, 0.5);
+  }
 }
 
 h2 {
-  text-transform: uppercase;
-  font-size: 24px !important;
-  font-weight: 400 !important;
-  margin-top: 1em !important;
-  margin-bottom: 1em !important;
-}
+  font-size: x-large;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-h3 {
-  font-size: 18px !important;
-}
+  $lineDistance: 1rem;
+  $lineLength: 4rem;
+  $lineWidth: 2px;
+  $linePosition: calc(-1 * $lineLength - $lineDistance);
 
-.flag-icon {
-  transform: scale(1.25);
+  &::after,
+  &::before {
+    content: "";
+    width: $lineLength;
+    height: $lineWidth;
+    background: $primary;
+    top: calc(50% - $lineWidth / 2);
+    position: absolute;
+  }
+  &::before {
+    left: $linePosition;
+  }
+  &::after {
+    right: $linePosition;
+  }
 }
 
 section {
   width: 100%;
-  align-self: center;
-  margin: auto;
-}
-
-.fab,
-.fas {
-  font-size: 2rem;
-}
-
-/* ======== Custom scrollbar ======== */
-
-$accent: map-get($portfolio-light-theme, accent);
-$background: map-get($portfolio-light-theme, background);
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: mat-color($background, selected-disabled-button);
-}
-
-::-webkit-scrollbar-thumb {
-  background: mat-color($accent);
-}
-
-/* ======== Global classes ======== */
-
-.center-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.center {
-  align-self: center;
-  margin: auto;
+/* Helper classes */
+
+.keep-spaces {
+  white-space: pre;
 }
 
-.center-vertical {
-  align-items: center;
+.word-wrap {
+  word-break: break-all;
 }
 
-.flex {
-  display: flex;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.no-margin {
-  margin: 0 !important;
-}
-
-.margin {
-  margin: var(--padding) !important;
-}
-
-.top-padding {
-  padding-top: var(--padding) !important;
-}
-
-.top-bot-padding {
-  padding: var(--padding) 0 var(--padding) 0 !important;
-}
-
-.bot-padding {
-  padding-bottom: var(--padding) !important;
-}
-
-.padding {
-  padding: var(--padding) !important;
-}
-
-.full-height {
-  height: 100%;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.two-thirds-width {
-  width: 66%;
-}
-
-.half-width {
-  width: 50%;
-}
-
-.third-width {
-  width: 33%;
-}
-
-@media (max-width: 1024px) {
-
-  .two-thirds-width,
-  .half-width {
-    width: 80%;
-  }
-
-  .third-width {
-    width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .two-thirds-width,
-  .half-width,
-  .third-width {
-    width: 80%;
-  }
-}
-
-.linebreaks {
+.line-breaks {
   white-space: pre-line;
+}
+
+.relative {
+  position: relative;
 }

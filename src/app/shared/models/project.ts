@@ -1,13 +1,12 @@
-import { LangString } from './lang-string';
-import { LangStringArray } from './lang-string-array';
+import { LocalizedString } from './localized-string';
 
 export class Project {
-    title: LangString;
-    subtitle: LangString;
-    description: LangString;
-    features: LangStringArray;
-    tags: string[];
-    codeLink: string;
-    demoLink: string;
-    imagePath: string;
+  title!: LocalizedString;
+  subtitle!: LocalizedString;
+  description!: LocalizedString;
+  features!: LocalizedString[];
+  tags!: string[];
+  codeLink!: string;
+  demoLink!: string;
+  imagePath!: string;
 }

@@ -1,40 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-
-import { PortfolioComponent } from './portfolio/components/portfolio/portfolio.component';
-import { NotFoundComponent } from './ui/components/not-found/not-found.component';
-import { paths } from './shared/util/app-paths';
-import { PathResolveService } from './shared/services/path-resolve.service';
+import { RouterModule, Routes } from '@angular/router';
+import { NotFoundPageComponent } from './shared/pages/not-found-page/not-found-page.component';
+import { PortfolioPageComponent } from './portfolio/pages/portfolio-page/portfolio-page.component';
 
 const routes: Routes = [
-    {
-        path: paths.base,
-        component: PortfolioComponent,
-    },
-    {
-        path: paths.home,
-        redirectTo: paths.base,
-        component: PortfolioComponent,
-    },
-    {
-        path: '**',
-        resolve:
-        {
-            path: PathResolveService
-        },
-        component: NotFoundComponent
-    }
+  {
+    path: '',
+    component: PortfolioPageComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent,
+  },
 ];
 
-const routerOptions: ExtraOptions = {
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-    scrollOffset: [0, 50]
-};
-
 @NgModule({
-    imports: [RouterModule.forRoot(routes, routerOptions)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

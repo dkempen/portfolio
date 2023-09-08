@@ -1,0 +1,38 @@
+<nav class="navbar d-flex px-2">
+  <div class="col">
+    <button
+      type="button"
+      routerLink
+      class="btn btn-link navbar-brand d-flex flex-direction-column align-items-center"
+    >
+      <img src="assets/images/logo.svg" alt="Logo" />
+      <p class="d-none d-sm-block">aan van Kempen</p>
+      <p class="d-none d-md-block keep-spaces">
+        -
+        {{ "portfolio.title" | translate }}
+      </p>
+    </button>
+  </div>
+  <div class="col-auto d-none d-xl-block text-center">
+    <ng-container [ngTemplateOutlet]="menuTemplate"></ng-container>
+    <ng-template #menuTemplate>
+      <button type="button" class="btn btn-link" (click)="goTo('about')">
+        {{ "portfolio.about" | translate }}
+      </button>
+      <button type="button" class="btn btn-link" (click)="goTo('skills')">
+        {{ "portfolio.skills" | translate }}
+      </button>
+      <button type="button" class="btn btn-link" (click)="goTo('projects')">
+        {{ "portfolio.projects" | translate }}
+      </button>
+      <button type="button" class="btn btn-link" (click)="goTo('contact')">
+        {{ "portfolio.contact" | translate }}
+      </button>
+    </ng-template>
+  </div>
+  <div class="col d-flex justify-content-end gap-2">
+    <app-theme-toggle></app-theme-toggle>
+    <app-language-toggle></app-language-toggle>
+  </div>
+</nav>
+<app-divider></app-divider>

@@ -1,0 +1,7 @@
+@import "/src/variables.scss";
+
+:host {
+  width: 100%;
+  border-bottom: $spacer solid $primary;
+  display: block;
+}
