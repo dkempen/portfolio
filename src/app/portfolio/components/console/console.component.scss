@@ -1,0 +1,35 @@
+$black: #000000;
+$gray: #bbbbbb;
+$green: #00ff00;
+$blue: #3049ff;
+$border: #13a10e;
+
+:host {
+  border: solid $border 2px;
+  background: rgba($black, 0.5);
+  border-radius: 5px;
+  text-align: start;
+  width: 30rem;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+
+  ::selection {
+    color: $black;
+    background: $gray;
+  }
+}
+
+p {
+  color: $gray;
+  margin: 5px;
+  font-size: small;
+}
+
+.blue {
+  color: $blue;
+}
+
+.green {
+  color: $green;
+}

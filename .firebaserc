@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "daanvankempen-f242d": {
+      "hosting": {
+        "portfolio": [
+          "daanvankempen-f242d"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "daanvankempen-f242d"
   }

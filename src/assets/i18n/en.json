@@ -1,50 +1,47 @@
 {
-  "contact": {
-    "email": "E-mail",
-    "error": "Something went wrong",
-    "invalidEmail": "This is not a valid e-mail address",
-    "mandatory": "This field is mandatory",
-    "message": "Message",
-    "name": "Name",
-    "submit": "Submit",
-    "thanks": "Thank you for your message!"
-  },
   "footer": {
     "text": "Designed and coded by Daan van Kempen © {{year}}",
     "toTop": "Back to top"
   },
-  "header": {
-    "changeEn": "Change language to English",
-    "changeNl": "Change language to Dutch",
-    "darkModeOff": "Turn on night mode",
-    "darkModeOn": "Turn off night mode",
-    "menu": "Menu"
+  "language": {
+    "switch": "Switch language"
   },
   "notFound": {
     "oops": "Oops! This page doesn't exist",
     "page": "page",
-    "try": "You might want to go to the "
+    "try": "You might want to go to the"
   },
   "portfolio": {
-    "about": "About",
-    "comingSoon": "More projects coming soon...",
+    "about": "About me",
+    "console1": "Software engineer",
+    "console2": "Full stack developer",
+    "console3": "Making cool things",
+    "console4": "Experimenting and discovering",
     "contact": "Contact",
-    "intro": "Hello, I'm Daan!\nI'm a software engineer and in my final year at Avans University of Applied Sciences. At the moment I am working as a software engineer at Hoppenbrouwers Techniek B.V.",
-    "nasa": "NASA - Astronomy picture of the day",
+    "intro": "Hello, I'm Daan!\nI'm a software engineer. At the moment I am working as a full-stack software engineer at Hoppenbrouwers Techniek.",
     "projects": "My projects",
     "skills": "My skills",
-    "typewriter1": "Software engineer",
-    "typewriter2": "Full stack developer",
-    "typewriter3": "Student at Avans University of Applied Sciences",
-    "typewriter4": "Always experimenting and discovering"
-  },
-  "project": {
-    "code": "View Code",
-    "demo": "Live Demo",
-    "features": "Features"
+    "title": "Portfolio",
+    "comingSoon": "Coming soon"
   },
   "skill": {
     "languages": "Languages",
     "tools": "Tools"
+  },
+  "theme": {
+    "switch": "Switch theme"
+  },
+  "contact": {
+    "name": "Name",
+    "namePlaceholder": "Your Name",
+    "email": "E-mail",
+    "emailPlaceholder": "name@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Your message",
+    "submit": "Submit",
+    "isRequired": "is required",
+    "emailInvalid": "Email must be a valid email address",
+    "error": "Something went wrong",
+    "thanks": "Thank you for your message!"
   }
 }

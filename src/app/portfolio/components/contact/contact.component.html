@@ -1,34 +1,14 @@
-<mat-card fxLayout="column" fxFlex>
-  <form *ngIf="!succeeded" [formGroup]="contactForm" fxLayout="column">
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="var(--gap)">
-      <mat-form-field color="accent" appearance="outline" fxFlex>
-        <mat-label>{{ 'contact.name' | translate }}</mat-label>
-        <input matInput type="text" placeholder="{{ 'contact.name' | translate }}" formControlName="name" required>
-        <mat-error>{{ 'contact.mandatory' | translate }}</mat-error>
-      </mat-form-field>
-      <mat-form-field color="accent" appearance="outline" fxFlex>
-        <mat-label>{{ 'contact.email' | translate }}</mat-label>
-        <input matInput type="email" placeholder="{{ 'contact.email' | translate }}" formControlName="email" required
-          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        <mat-error>{{ 'contact.invalidEmail' | translate }}</mat-error>
-      </mat-form-field>
-    </div>
-    <mat-form-field color="accent" appearance="outline">
-      <mat-label>{{ 'contact.message' | translate }}</mat-label>
-      <textarea matInput type="text" placeholder="{{ 'contact.message' | translate }}" formControlName="message"
-        required cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3"
-        cdkAutosizeMaxRows="10"></textarea>
-      <mat-error>{{ 'contact.mandatory' | translate }}</mat-error>
-    </mat-form-field>
-    <input type="text" formControlName="gotcha" style="display:none" />
-    <button mat-raised-button color="accent" (click)="onSumbitButton()" [disabled]="contactForm.invalid || submitting">
-      <div *ngIf="!submitting">
-        <i class="fa fa-paper-plane"></i>{{ 'contact.submit' | translate }}</div>
-      <div *ngIf="submitting">
-        <mat-spinner color="accent" [diameter]="26"></mat-spinner>
-      </div>
-    </button>
-    <mat-error *ngIf="error" class="center-text">{{ 'contact.error' | translate }}</mat-error>
-  </form>
-  <p *ngIf="succeeded" class="center-text">{{ 'contact.thanks' | translate }}</p>
-</mat-card>
+<app-contact-form></app-contact-form>
+
+<div class="d-flex gap-3">
+  <a
+    *ngFor="let contact of contacts"
+    class="btn btn-primary btn-round"
+    [href]="contact.uri"
+    target="_blank"
+    [ngbTooltip]="contact.name"
+    (click)="onContactClick(contact.callback)"
+  >
+    <i class="bi" [ngClass]="contact.icon"></i>
+  </a>
+</div>
