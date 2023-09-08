@@ -1,0 +1,85 @@
+[
+  {
+    "icon": "server",
+    "title": {
+      "en": "Back-end Developer",
+      "nl": "Back-end Ontwikkelaar"
+    },
+    "description": {
+      "en": "I love finding elegant and efficient solutions for many types of back-end systems.",
+      "nl": "Ik vind het geweldig om elegante en efficiënte oplossingen te vinden voor vele soorten back-end systemen."
+    },
+    "languages": [
+      "C#",
+      "C++",
+      "C",
+      "Java",
+      "Python"
+    ],
+    "tools": [
+      ".NET Core",
+      "Entity Framework",
+      "SQL",
+      "LINQ",
+      "REST API",
+      "GraphQL",
+      "MQTT",
+      "Express",
+      "Azure Digital Twin",
+      "Visual Studio",
+      "IntelliJ IDEA",
+      "PyCharm"
+    ]
+  },
+  {
+    "icon": "code-slash",
+    "title": {
+      "en": "Front-end Developer",
+      "nl": "Front-end Ontwikkelaar"
+    },
+    "description": {
+      "en": "I can also display the back-end data in a nice application or website ready for customers to use.",
+      "nl": "Ik kan ook de back-end gegevens weergeven in een mooie applicatie of website die klanten kunnen gebruiken."
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS"
+    ],
+    "tools": [
+      "Angular",
+      "Bootstrap",
+      "Node",
+      "Visual Studio Code",
+      "Android Studio",
+      "Windows Forms",
+      "WPF"
+    ]
+  },
+  {
+    "icon": "git",
+    "title": {
+      "en": "Software Engineer",
+      "nl": "Software Ontwikkelaar"
+    },
+    "description": {
+      "en": "I have worked with many development tools in many ways, so I can work in an agile environment in a team, or as a solo developer.",
+      "nl": "Ik heb op veel manieren met veel ontwikkeltools gewerkt, dus ik kan in een agile omgeving in een team of als solo ontwikkelaar werken."
+    },
+    "tools": [
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Docker",
+      "Azure DevOps",
+      "PowerShell",
+      "Bash",
+      "Scrum",
+      "Agile",
+      "Homelab",
+      "TrueNAS",
+      "Linux",
+      "Windows"
+    ]
+  }
+]
