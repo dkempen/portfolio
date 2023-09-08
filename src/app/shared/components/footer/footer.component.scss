@@ -1,0 +1,21 @@
+@import "/src/variables.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  padding: $gap-m 0;
+  position: relative;
+}
+
+button {
+  position: absolute;
+  bottom: $gap-m;
+  right: $gap-m;
+  opacity: 0 !important;
+  transition: all 0.5s !important;
+
+  &.visible {
+    bottom: calc($gap-m + 100%);
+    opacity: 1 !important;
+  }
+}

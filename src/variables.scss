@@ -1,0 +1,23 @@
+/* Bootstrap imports */
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+/* Colors */
+
+$primary: #ea5f00;
+
+$custom-colors: (
+  "primary": $primary,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+/* Constants */
+
+$gap: 1rem;
+$gap-s: $gap / 2;
+$gap-m: $gap;
+$gap-l: $gap * 2;
+
+$spacer: 5px;

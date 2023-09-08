@@ -1,0 +1,30 @@
+<section class="w-100 stars">
+  <app-stars></app-stars>
+  <div class="container my-4">
+    <h1 class="mb-4 text-white">Daan van Kempen</h1>
+    <app-console></app-console>
+  </div>
+</section>
+<app-divider></app-divider>
+<section id="about" class="container">
+  <h2>{{ "portfolio.about" | translate }}</h2>
+  <p class="line-breaks">{{ "portfolio.intro" | translate }}</p>
+</section>
+<section id="skills" class="container">
+  <h2>{{ "portfolio.skills" | translate }}</h2>
+  <div class="d-flex flex-column flex-md-row align-items-stretch gap-4 w-100">
+    <app-skill
+      class="skill card bg-body-secondary"
+      *ngFor="let skill of skills"
+      [skill]="skill"
+    ></app-skill>
+  </div>
+</section>
+<section id="projects" class="container">
+  <h2>{{ "portfolio.projects" | translate }}</h2>
+  <p class="line-breaks">{{ "portfolio.comingSoon" | translate }}...</p>
+</section>
+<section id="contact" class="container mb-3">
+  <h2>{{ "portfolio.contact" | translate }}</h2>
+  <app-contact></app-contact>
+</section>

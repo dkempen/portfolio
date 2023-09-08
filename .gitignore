@@ -1,50 +1,48 @@
-# Created by https://www.toptal.com/developers/gitignore/api/angular,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=angular,visualstudiocode
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-### Angular ###
-## Angular ##
-# compiled output
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# dependencies
-node_modules/
-bower_components/
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 
 # IDEs and editors
 .idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
-npm-debug.log
-testem.log
-typings/
-
-# e2e
-e2e/*.js
-e2e/*.map
-
-# System Files
-.DS_Store/
-
-### VisualStudioCode ###
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+.history/*
 
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
 
-# End of https://www.toptal.com/developers/gitignore/api/angular,visualstudiocode
+# System files
+.DS_Store
+Thumbs.db
 
-# Ignore Firebase cache
+# Firebase
 .firebase
+*-debug.log
+.runtimeconfig.json
+environment.prod.ts

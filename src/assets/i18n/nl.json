@@ -1,50 +1,47 @@
 {
-  "contact": {
-    "email": "E-mail",
-    "error": "Er is iets fout gegaan",
-    "invalidEmail": "Dit is geen geldig e-mailadres",
-    "mandatory": "Dit veld is verplicht",
-    "message": "Bericht",
-    "name": "Naam",
-    "submit": "Verzenden",
-    "thanks": "Bedankt voor je bericht!"
-  },
   "footer": {
-    "text": "Ontworpen en geprogrammeerd door Daan van Kempen © {{year}}",
+    "text": "Ontworpen en gecodeerd door Daan van Kempen © {{year}}",
     "toTop": "Terug naar boven"
   },
-  "header": {
-    "changeEn": "Verander taal naar Engels",
-    "changeNl": "Verander taal naar Nederlands",
-    "darkModeOff": "Nacht modus aan",
-    "darkModeOn": "Nacht modus uit",
-    "menu": "Menu"
+  "language": {
+    "switch": "Wissel van taal"
   },
   "notFound": {
     "oops": "Oeps! Deze pagina bestaat niet",
     "page": "pagina",
-    "try": "Je wilt misschien naar de "
+    "try": "Je wilt misschien naar de"
   },
   "portfolio": {
     "about": "Over mij",
-    "comingSoon": "Binnenkort meer projecten...",
+    "console1": "Software engineer",
+    "console2": "Full stack ontwikkelaar",
+    "console3": "Coole dingen aan het maken",
+    "console4": "Experimenteren en ontdekken",
     "contact": "Contact",
-    "intro": "Hallo, Ik ben Daan!\nIk ben een software ontwikkelaar en in mijn laatste jaar bij Avans Hogeschool Technische Informatica. Op het moment ben ik werkzaam als software engineer bij Hoppenbrouwers Techniek B.V.",
-    "nasa": "NASA - Astronomie foto van de dag",
+    "intro": "Hallo, ik ben Daan!\nIk ben een software-engineer. Op dit moment werk ik als full-stack software engineer bij Hoppenbrouwers Techniek.",
     "projects": "Mijn projecten",
     "skills": "Mijn vaardigheden",
-    "typewriter1": "Software ontwikkelaar",
-    "typewriter2": "Full stack ontwikkelaar",
-    "typewriter3": "Student bij Avans Hogeschool Technische Informatica",
-    "typewriter4": "Altijd bezig met expirimenteren en ontdekken"
-  },
-  "project": {
-    "code": "Bekijk Code",
-    "demo": "Live Demo",
-    "features": "Functies"
+    "title": "Portfolio",
+    "comingSoon": "Komt binnenkort"
   },
   "skill": {
     "languages": "Talen",
     "tools": "Hulpmiddelen"
+  },
+  "theme": {
+    "switch": "Wissel van thema"
+  },
+  "contact": {
+    "name": "Naam",
+    "namePlaceholder": "Uw Naam",
+    "email": "E-mail",
+    "emailPlaceholder": "naam@voorbeeld.nl",
+    "message": "Bericht",
+    "messagePlaceholder": "Jouw bericht",
+    "submit": "Verstuur",
+    "isRequired": "is verplicht",
+    "emailInvalid": "E-mail moet een geldig e-mailadres zijn",
+    "error": "Er is iets fout gegaan",
+    "thanks": "Bedankt voor je bericht!"
   }
 }

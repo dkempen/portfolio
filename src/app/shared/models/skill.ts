@@ -1,9 +1,9 @@
-import { LangString } from './lang-string';
+import { LocalizedString } from './localized-string';
 
 export class Skill {
-    title: LangString;
-    description: LangString;
-    languages: string[];
-    tools: string[];
-    icon: string;
+  icon!: string;
+  title!: LocalizedString;
+  description!: LocalizedString;
+  languages?: string[];
+  tools!: string[];
 }
