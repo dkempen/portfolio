@@ -1,7 +1,7 @@
 @import "/src/variables.scss";
 
 :host {
+  display: block;
   width: 100%;
   border-bottom: $spacer solid $primary;
-  display: block;
 }

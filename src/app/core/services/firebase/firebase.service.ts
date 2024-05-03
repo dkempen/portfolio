@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
-
-export interface IFirebaseService {
-  logEvent(name: string, data?: unknown): void;
-}
+import { Injectable, inject } from '@angular/core';
+import { Analytics, logEvent } from '@angular/fire/analytics';
+import { IFirebaseService, LogEvent } from '../../models/firebase-service';
 
 @Injectable()
 export class FirebaseService implements IFirebaseService {
-  constructor(private analytics: AngularFireAnalytics) {}
+  protected performance = inject(Performance);
+  protected analytics = inject(Analytics);
 
-  public logEvent(name: string, data?: unknown): void {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.analytics.logEvent(name, data as any);
+  public logEvent(event: LogEvent, data?: object): void {
+    logEvent(this.analytics, event, data);
   }
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class FirebaseDevelopmentService implements IFirebaseService {
-  public logEvent(name: string, data?: unknown): void {
-    console.log('Firebase analytics:', name, data ?? '');
+  public logEvent(event: LogEvent, data?: object): void {
+    console.log('Firebase analytics:', event, data);
   }
 }

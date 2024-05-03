@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ThemeToggleComponent } from './theme-toggle.component';
 
@@ -12,7 +12,7 @@ describe('ThemeToggleComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ThemeToggleComponent],
-      imports: [HttpClientModule, TranslateModule.forRoot(), NgbModule],
+      imports: [HttpClientModule, TranslateModule.forRoot(), NgbTooltip],
     });
     fixture = TestBed.createComponent(ThemeToggleComponent);
     component = fixture.componentInstance;

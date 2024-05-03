@@ -4,8 +4,9 @@ import { fromEvent, throttleTime } from 'rxjs';
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
-  styleUrls: ['./stars.component.scss'],
+  styleUrl: './stars.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class StarsComponent implements OnInit {
   private readonly MAX_TRANSLATION = 3000;

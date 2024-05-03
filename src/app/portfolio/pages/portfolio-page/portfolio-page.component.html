@@ -13,11 +13,9 @@
 <section id="skills" class="container">
   <h2>{{ "portfolio.skills" | translate }}</h2>
   <div class="d-flex flex-column flex-md-row align-items-stretch gap-4 w-100">
-    <app-skill
-      class="skill card bg-body-secondary"
-      *ngFor="let skill of skills"
-      [skill]="skill"
-    ></app-skill>
+    @for (skill of skills; track skill.title) {
+    <app-skill class="skill card bg-body-secondary" [skill]="skill"></app-skill>
+    }
   </div>
 </section>
 <section id="projects" class="container">

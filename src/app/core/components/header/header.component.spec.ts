@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {

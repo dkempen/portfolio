@@ -1,19 +1,25 @@
 <i class="text-primary fs-3 bi" [ngClass]="'bi-' + skill.icon"></i>
 <h3>{{ title }}</h3>
 <p>{{ description }}</p>
-<div *ngIf="skill.languages && skill.languages.length !== 0">
+@if (skill.languages && skill.languages.length !== 0) {
+<div>
   <p class="text-primary fw-semibold fs-5 my-1">
     {{ "skill.languages" | translate }}
   </p>
   <ul>
-    <li *ngFor="let language of skill.languages">{{ language }}</li>
+    @for (language of skill.languages; track $index) {
+    <li>{{ language }}</li>
+    }
   </ul>
 </div>
+}
 <div>
   <p class="text-primary fw-semibold fs-5 my-1">
     {{ "skill.tools" | translate }}
   </p>
   <ul>
-    <li *ngFor="let tool of skill.tools">{{ tool }}</li>
+    @for (tool of skill.tools; track $index) {
+    <li>{{ tool }}</li>
+    }
   </ul>
 </div>

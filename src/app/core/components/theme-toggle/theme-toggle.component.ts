@@ -1,20 +1,27 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { Observable, firstValueFrom } from 'rxjs';
-import { ThemeService } from '../../../core/services/theme/theme.service';
-import { Themes } from '../../models/themes';
+import { Themes } from '../../../shared/models/themes';
+import { ThemeService } from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
   templateUrl: './theme-toggle.component.html',
-  styleUrls: ['./theme-toggle.component.scss'],
+  styleUrl: './theme-toggle.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, TranslateModule, NgbTooltip],
+  standalone: true,
 })
 export class ThemeToggleComponent {
   theme$: Observable<Themes>;
   themes = Themes;
 
-  constructor(private themeService: ThemeService) {
-    this.theme$ = themeService.theme$;
+  private themeService = inject(ThemeService);
+
+  constructor() {
+    this.theme$ = this.themeService.theme$;
   }
 
   public async onClick(): Promise<void> {

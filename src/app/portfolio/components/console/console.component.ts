@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,8 +13,10 @@ import { StorageService } from '../../../core/services/storage/storage.service';
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.scss'],
+  styleUrl: './console.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule],
+  standalone: true,
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
   @Input() texts: string[] | undefined;

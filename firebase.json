@@ -1,8 +1,15 @@
 {
-  "hosting": {
-    "target": "daanvankempen-f242d",
-    "source": ".",
-    "frameworksBackend": {}
-  },
+  "hosting": [
+    {
+      "target": "daanvankempen-f242d",
+      "source": ".",
+      "frameworksBackend": {}
+    },
+    {
+      "target": "portfolio",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ],
   "singleProjectMode": true
 }

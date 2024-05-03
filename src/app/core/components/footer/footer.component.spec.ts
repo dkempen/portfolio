@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { FooterComponent } from './footer.component';
 
@@ -11,7 +11,7 @@ describe('FooterComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [FooterComponent],
-      imports: [TranslateModule.forRoot(), NgbModule],
+      imports: [TranslateModule.forRoot(), NgbTooltip],
     });
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
