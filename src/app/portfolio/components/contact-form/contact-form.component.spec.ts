@@ -15,7 +15,6 @@ describe('ContactFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ContactFormComponent],
       imports: [HttpClientModule, FormsModule, TranslateModule.forRoot()],
       providers: [
         {

@@ -9,7 +9,6 @@ describe('SkillComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SkillComponent],
       imports: [TranslateModule.forRoot()],
     });
     fixture = TestBed.createComponent(SkillComponent);

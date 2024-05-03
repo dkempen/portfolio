@@ -10,7 +10,6 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FooterComponent],
       imports: [TranslateModule.forRoot(), NgbTooltip],
     });
     fixture = TestBed.createComponent(FooterComponent);

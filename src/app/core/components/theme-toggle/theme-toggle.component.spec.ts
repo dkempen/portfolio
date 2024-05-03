@@ -11,7 +11,6 @@ describe('ThemeToggleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ThemeToggleComponent],
       imports: [HttpClientModule, TranslateModule.forRoot(), NgbTooltip],
     });
     fixture = TestBed.createComponent(ThemeToggleComponent);

@@ -11,7 +11,6 @@ describe('LanguageToggleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LanguageToggleComponent],
       imports: [TranslateModule.forRoot(), HttpClientModule, NgbTooltip],
     });
     fixture = TestBed.createComponent(LanguageToggleComponent);

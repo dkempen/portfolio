@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '../../../shared/shared.module';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -11,11 +11,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
       imports: [
         TranslateModule.forRoot(),
         RouterModule.forRoot([]),
-        SharedModule,
+        HttpClientModule,
       ],
     });
     fixture = TestBed.createComponent(HeaderComponent);

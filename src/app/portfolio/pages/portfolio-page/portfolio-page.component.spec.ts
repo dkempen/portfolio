@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   FirebaseDevelopmentService,
   FirebaseService,
 } from '../../../core/services/firebase/firebase.service';
-import { PortfolioModule } from '../../portfolio.module';
 import { PortfolioPageComponent } from './portfolio-page.component';
 
 describe('PortfolioPageComponent', () => {
@@ -14,8 +14,7 @@ describe('PortfolioPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PortfolioPageComponent],
-      imports: [PortfolioModule, TranslateModule.forRoot()],
+      imports: [HttpClientModule, TranslateModule.forRoot()],
       providers: [
         {
           provide: FirebaseService,

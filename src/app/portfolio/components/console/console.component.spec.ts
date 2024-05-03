@@ -10,7 +10,6 @@ describe('ConsoleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConsoleComponent],
       imports: [TranslateModule.forRoot(), HttpClientModule],
     });
     fixture = TestBed.createComponent(ConsoleComponent);

@@ -9,7 +9,6 @@ describe('NotFoundPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NotFoundPageComponent],
       imports: [TranslateModule.forRoot()],
     });
     fixture = TestBed.createComponent(NotFoundPageComponent);

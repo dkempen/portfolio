@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Analytics, logEvent } from '@angular/fire/analytics';
+import { Performance } from '@angular/fire/performance';
 import { IFirebaseService, LogEvent } from '../../models/firebase-service';
 
 @Injectable()
