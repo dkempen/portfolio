@@ -1,29 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { NgModule, Provider, isDevMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import {
-  provideAnalytics,
-  getAnalytics,
   ScreenTrackingService,
   UserTrackingService,
+  getAnalytics,
+  provideAnalytics,
 } from '@angular/fire/analytics';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { PortfolioModule } from './portfolio/portfolio.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 import {
   FirebaseDevelopmentService,
   FirebaseService,
 } from './core/services/firebase/firebase.service';
+import { PortfolioModule } from './portfolio/portfolio.module';
+import { SharedModule } from './shared/shared.module';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let firebaseImports: any[] = [];
@@ -49,7 +48,7 @@ if (environment.production) {
   ];
 }
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 

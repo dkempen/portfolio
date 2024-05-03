@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ThemeService } from '../../../core/services/theme/theme.service';
 import { Observable, firstValueFrom } from 'rxjs';
+import { ThemeService } from '../../../core/services/theme/theme.service';
 import { Themes } from '../../models/themes';
 
 @Component({
@@ -17,7 +17,7 @@ export class ThemeToggleComponent {
     this.theme$ = themeService.theme$;
   }
 
-  async onClick() {
+  public async onClick(): Promise<void> {
     let theme = await firstValueFrom(this.theme$);
     switch (theme) {
       case Themes.Auto:

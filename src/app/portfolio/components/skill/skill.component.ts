@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Skill } from '../../../shared/models/skill';
 import { TranslateService } from '@ngx-translate/core';
 import { toString } from '../../../shared/models/localized-string';
+import { Skill } from '../../../shared/models/skill';
 
 @Component({
   selector: 'app-skill',

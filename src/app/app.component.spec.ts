@@ -1,14 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [SharedModule, RouterTestingModule, TranslateModule.forRoot()],
+      imports: [
+        SharedModule,
+        RouterModule.forRoot([]),
+        TranslateModule.forRoot(),
+      ],
     })
   );
 

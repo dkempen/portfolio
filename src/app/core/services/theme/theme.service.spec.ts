@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ThemeService } from './theme.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
   let service: ThemeService;

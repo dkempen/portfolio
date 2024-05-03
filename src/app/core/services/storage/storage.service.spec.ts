@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StorageService } from './storage.service';
 import { HttpClientModule } from '@angular/common/http';
+import { StorageService } from './storage.service';
 
 describe('StorageService', () => {
   let service: StorageService;

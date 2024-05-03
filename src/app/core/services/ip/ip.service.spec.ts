@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IpService } from './ip.service';
 import { HttpClientModule } from '@angular/common/http';
+import { IpService } from './ip.service';
 
 describe('IpService', () => {
   let service: IpService;

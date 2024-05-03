@@ -4,10 +4,10 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { ContactForm } from '../../../shared/models/contact-form';
-import { FormspreeService } from '../../../core/services/formspree/formspree.service';
-import { FirebaseService } from '../../../core/services/firebase/firebase.service';
 import { BehaviorSubject } from 'rxjs';
+import { FirebaseService } from '../../../core/services/firebase/firebase.service';
+import { FormspreeService } from '../../../core/services/formspree/formspree.service';
+import { ContactForm } from '../../../shared/models/contact-form';
 
 @Component({
   selector: 'app-contact-form',
@@ -31,7 +31,7 @@ export class ContactFormComponent implements OnInit {
     this.changeDetectorRef.detectChanges();
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     this.submitting$.next(true);
     this.formspreeService.sendForm(this.model).subscribe({
       next: () => {

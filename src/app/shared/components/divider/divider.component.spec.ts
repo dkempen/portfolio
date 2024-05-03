@@ -8,7 +8,7 @@ describe('DividerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DividerComponent]
+      declarations: [DividerComponent],
     });
     fixture = TestBed.createComponent(DividerComponent);
     component = fixture.componentInstance;

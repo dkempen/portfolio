@@ -31,7 +31,7 @@ export class ContactComponent {
 
   constructor(private firebaseService: FirebaseService) {}
 
-  onContactClick(type: string) {
+  public onContactClick(type: string): void {
     this.firebaseService.logEvent(type);
   }
 }

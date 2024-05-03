@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LanguageToggleComponent } from './language-toggle.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageToggleComponent } from './language-toggle.component';
 
 describe('LanguageToggleComponent', () => {
   let component: LanguageToggleComponent;

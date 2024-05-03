@@ -15,17 +15,17 @@ export class FooterComponent {
     this.reachedBottomListener();
   }
 
-  private reachedBottomListener() {
-    window.onscroll = () => {
+  public toTop(): void {
+    window.scrollTo({ top: 0 });
+  }
+
+  private reachedBottomListener(): void {
+    window.onscroll = (): void => {
       const position =
         (document.documentElement.scrollTop || document.body.scrollTop) +
         document.documentElement.offsetHeight;
       const pageLength = document.documentElement.scrollHeight;
       this.scrolledToBottom = position + 1 >= pageLength;
     };
-  }
-
-  toTop() {
-    window.scrollTo({ top: 0 });
   }
 }

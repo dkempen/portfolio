@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  goTo(location: string) {
+  public goTo(location: string): void {
     const height = document
       .getElementById(location)
       ?.getBoundingClientRect().top;

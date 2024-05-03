@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortfolioPageComponent } from './portfolio-page.component';
-import { PortfolioModule } from '../../portfolio.module';
 import { TranslateModule } from '@ngx-translate/core';
 import {
-  FirebaseService,
   FirebaseDevelopmentService,
+  FirebaseService,
 } from '../../../core/services/firebase/firebase.service';
+import { PortfolioModule } from '../../portfolio.module';
+import { PortfolioPageComponent } from './portfolio-page.component';
 
 describe('PortfolioPageComponent', () => {
   let component: PortfolioPageComponent;

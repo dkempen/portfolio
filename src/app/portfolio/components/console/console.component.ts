@@ -36,7 +36,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     private storageService: StorageService
   ) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     const lastVisit = await this.storageService.getLastVisit();
     this.lastVisitDate = `${lastVisit[0]
       .toLocaleString(undefined, {
@@ -84,11 +84,11 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 
-  private async updateLanguageText() {
+  private async updateLanguageText(): Promise<void> {
     const suffix = '...';
     this.texts = [
       (await firstValueFrom(this.translate.get('portfolio.console1'))) + suffix,

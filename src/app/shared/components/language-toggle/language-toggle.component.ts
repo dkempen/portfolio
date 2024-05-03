@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable, firstValueFrom } from 'rxjs';
-import { LanguageService } from '../../../core/services/language/language.service';
 import { Languages } from 'src/app/shared/models/languages';
+import { LanguageService } from '../../../core/services/language/language.service';
 
 @Component({
   selector: 'app-language-toggle',
@@ -17,7 +17,7 @@ export class LanguageToggleComponent {
     this.language$ = languageService.language$;
   }
 
-  async onClick() {
+  public async onClick(): Promise<void> {
     let language = await firstValueFrom(this.language$);
     switch (language) {
       case Languages.English:
