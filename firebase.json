@@ -4,11 +4,6 @@
       "target": "daanvankempen-f242d",
       "source": ".",
       "frameworksBackend": {}
-    },
-    {
-      "target": "portfolio",
-      "source": ".",
-      "frameworksBackend": {}
     }
   ],
   "singleProjectMode": true
