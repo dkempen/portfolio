@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Languages } from '../../../shared/models/languages';
 import { Preferences } from '../../../shared/models/preferences';
 import { Themes } from '../../../shared/models/themes';
-import { Languages } from '../../../shared/models/languages';
 import { IpService } from '../ip/ip.service';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class StorageService {
     this.getPreferences();
   }
 
-  getPreferences(): Preferences {
+  public getPreferences(): Preferences {
     if (this.preferences) return this.preferences;
 
     const preferencesString = localStorage.getItem(this.STORAGE_KEY);
@@ -28,38 +28,39 @@ export class StorageService {
     return this.preferences;
   }
 
-  setPreferences(preferences: Preferences): void {
+  public setPreferences(preferences: Preferences): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(preferences));
   }
 
-  getTheme(): Themes {
+  public getTheme(): Themes {
     return this.getPreferences().theme ?? Themes.Auto;
   }
 
-  setTheme(theme: Themes): void {
+  public setTheme(theme: Themes): void {
     const preferences = this.getPreferences();
     preferences.theme = theme;
     this.setPreferences(preferences);
   }
 
-  setLanguage(language: Languages): void {
+  public setLanguage(language: Languages): void {
     const preferences = this.getPreferences();
     preferences.language = language;
     this.setPreferences(preferences);
   }
 
-  getLanguage(): Languages {
+  public getLanguage(): Languages {
     return this.getPreferences().language ?? Languages.English;
   }
 
-  async setLastVisit(): Promise<void> {
+  public async setLastVisit(): Promise<void> {
     const preferences = this.getPreferences();
     preferences.lastVisitDate = new Date().toString();
-    // preferences.lastVisitIp = await this.ipService.getIp();
     this.setPreferences(preferences);
   }
 
-  async getLastVisit(): Promise<[lastVisitDate: Date, lastVisitIp: string]> {
+  public async getLastVisit(): Promise<
+    [lastVisitDate: Date, lastVisitIp: string]
+  > {
     const preferences = this.getPreferences();
     const lastVisitDate = preferences.lastVisitDate ?? new Date();
     const lastVisitIp =

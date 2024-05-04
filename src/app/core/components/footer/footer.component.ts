@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  styleUrl: './footer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, TranslateModule, NgbTooltip],
+  standalone: true,
 })
 export class FooterComponent {
   year: string;
@@ -15,17 +21,17 @@ export class FooterComponent {
     this.reachedBottomListener();
   }
 
-  private reachedBottomListener() {
-    window.onscroll = () => {
+  public toTop(): void {
+    window.scrollTo({ top: 0 });
+  }
+
+  private reachedBottomListener(): void {
+    window.onscroll = (): void => {
       const position =
         (document.documentElement.scrollTop || document.body.scrollTop) +
         document.documentElement.offsetHeight;
       const pageLength = document.documentElement.scrollHeight;
       this.scrolledToBottom = position + 1 >= pageLength;
     };
-  }
-
-  toTop() {
-    window.scrollTo({ top: 0 });
   }
 }

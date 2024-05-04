@@ -1,8 +1,8 @@
 <app-contact-form></app-contact-form>
 
 <div class="d-flex gap-3">
+  @for (contact of contacts; track contact.name) {
   <a
-    *ngFor="let contact of contacts"
     class="btn btn-primary btn-round"
     [href]="contact.uri"
     target="_blank"
@@ -11,4 +11,5 @@
   >
     <i class="bi" [ngClass]="contact.icon"></i>
   </a>
+  }
 </div>

@@ -1,23 +1,30 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { Observable, firstValueFrom } from 'rxjs';
-import { LanguageService } from '../../../core/services/language/language.service';
 import { Languages } from 'src/app/shared/models/languages';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'app-language-toggle',
   templateUrl: './language-toggle.component.html',
-  styleUrls: ['./language-toggle.component.scss'],
+  styleUrl: './language-toggle.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, TranslateModule, NgbTooltip],
+  standalone: true,
 })
 export class LanguageToggleComponent {
   language$: Observable<Languages>;
   languages = Languages;
 
-  constructor(private languageService: LanguageService) {
-    this.language$ = languageService.language$;
+  private languageService = inject(LanguageService);
+
+  constructor() {
+    this.language$ = this.languageService.language$;
   }
 
-  async onClick() {
+  public async onClick(): Promise<void> {
     let language = await firstValueFrom(this.language$);
     switch (language) {
       case Languages.English:

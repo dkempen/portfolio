@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ContactForm } from '../../../shared/models/contact-form';
 import { Observable } from 'rxjs';
+import { ContactForm } from '../../../shared/models/contact-form';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class FormspreeService {
 
   constructor(private http: HttpClient) {}
 
-  sendForm(contactForm: ContactForm): Observable<object> {
+  public sendForm(contactForm: ContactForm): Observable<object> {
     const httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(
       `${this.formspreeUrl}${this.formspreeId}`,

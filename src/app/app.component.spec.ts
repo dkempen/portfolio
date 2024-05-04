@@ -1,14 +1,25 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Analytics } from '@angular/fire/analytics';
+import { Performance } from '@angular/fire/performance';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AppComponent } from './app.component';
+import { FirebaseService } from './core/services/firebase/firebase.service';
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [SharedModule, RouterTestingModule, TranslateModule.forRoot()],
+      imports: [
+        HttpClientModule,
+        RouterModule.forRoot([]),
+        TranslateModule.forRoot(),
+      ],
+      providers: [
+        FirebaseService,
+        { provide: Performance, useValue: {} },
+        { provide: Analytics, useValue: {} },
+      ],
     })
   );
 

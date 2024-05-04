@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,8 +13,10 @@ import { StorageService } from '../../../core/services/storage/storage.service';
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.scss'],
+  styleUrl: './console.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule],
+  standalone: true,
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
   @Input() texts: string[] | undefined;
@@ -36,7 +39,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     private storageService: StorageService
   ) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     const lastVisit = await this.storageService.getLastVisit();
     this.lastVisitDate = `${lastVisit[0]
       .toLocaleString(undefined, {
@@ -84,11 +87,11 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 
-  private async updateLanguageText() {
+  private async updateLanguageText(): Promise<void> {
     const suffix = '...';
     this.texts = [
       (await firstValueFrom(this.translate.get('portfolio.console1'))) + suffix,

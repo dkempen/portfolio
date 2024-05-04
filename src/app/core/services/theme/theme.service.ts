@@ -1,17 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { StorageService } from '../storage/storage.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Themes } from '../../../shared/models/themes';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private theme: BehaviorSubject<Themes>;
-  get theme$(): Observable<Themes> {
-    return this.theme.asObservable();
-  }
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -27,14 +24,18 @@ export class ThemeService {
     this.setTheme(theme);
   }
 
-  getPreferredTheme(theme: Themes): Themes {
+  public get theme$(): Observable<Themes> {
+    return this.theme.asObservable();
+  }
+
+  public getPreferredTheme(theme: Themes): Themes {
     if (theme && theme !== Themes.Auto) return theme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches
       ? Themes.Dark
       : Themes.Light;
   }
 
-  setTheme(theme: Themes) {
+  public setTheme(theme: Themes): void {
     this.document.documentElement.setAttribute(
       'data-bs-theme',
       this.getPreferredTheme(theme)

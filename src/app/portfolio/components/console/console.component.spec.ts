@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConsoleComponent } from './console.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { ConsoleComponent } from './console.component';
 
 describe('ConsoleComponent', () => {
   let component: ConsoleComponent;
@@ -10,7 +10,6 @@ describe('ConsoleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConsoleComponent],
       imports: [TranslateModule.forRoot(), HttpClientModule],
     });
     fixture = TestBed.createComponent(ConsoleComponent);

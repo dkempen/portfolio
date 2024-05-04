@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LanguageService } from './language.service';
-import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from './language.service';
 
 describe('LanguageService', () => {
   let service: LanguageService;

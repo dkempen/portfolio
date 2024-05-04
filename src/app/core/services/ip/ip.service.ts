@@ -8,7 +8,7 @@ import { firstValueFrom, map } from 'rxjs';
 export class IpService {
   constructor(private client: HttpClient) {}
 
-  async getIp(): Promise<string> {
+  public async getIp(): Promise<string> {
     return firstValueFrom(
       this.client
         .get<{ ip: string }>('https://ipapi.co/json')

@@ -4,8 +4,9 @@ import { fromEvent, throttleTime } from 'rxjs';
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
-  styleUrls: ['./stars.component.scss'],
+  styleUrl: './stars.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class StarsComponent implements OnInit {
   private readonly MAX_TRANSLATION = 3000;
@@ -20,7 +21,7 @@ export class StarsComponent implements OnInit {
       .subscribe((event: MouseEvent) => this.onMouseMove(event));
   }
 
-  private onMouseMove(event: MouseEvent) {
+  private onMouseMove(event: MouseEvent): void {
     const x = (event.x / window.innerWidth) * 2 - 1;
     const y = (event.y / window.innerHeight) * 2 - 1;
     for (let i = 0; i < this.starLayers.length; i++) {

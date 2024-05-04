@@ -1,13 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Skill } from '../../../shared/models/skill';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { toString } from '../../../shared/models/localized-string';
+import { Skill } from '../../../shared/models/skill';
 
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.scss'],
+  styleUrl: './skill.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, TranslateModule],
+  standalone: true,
 })
 export class SkillComponent {
   @Input() skill!: Skill;

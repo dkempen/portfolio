@@ -1,0 +1,13 @@
+<button
+  class="btn btn-link btn-round"
+  [ngbTooltip]="'theme.switch' | translate"
+  (click)="onClick()"
+>
+  @switch (theme$ | async) { @case (themes.Dark) {
+  <i class="bi bi-moon-stars"></i>
+  } @case (themes.Light) {
+  <i class="bi bi-brightness-high-fill"></i>
+  } @case (themes.Auto) {
+  <i class="bi bi-circle-half"></i>
+  } }
+</button>

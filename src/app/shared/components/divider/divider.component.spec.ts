@@ -7,9 +7,7 @@ describe('DividerComponent', () => {
   let fixture: ComponentFixture<DividerComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [DividerComponent]
-    });
+    TestBed.configureTestingModule({});
     fixture = TestBed.createComponent(DividerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

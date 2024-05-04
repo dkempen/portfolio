@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormspreeService } from './formspree.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormspreeService } from './formspree.service';
 
 describe('FormspreeService', () => {
   let service: FormspreeService;

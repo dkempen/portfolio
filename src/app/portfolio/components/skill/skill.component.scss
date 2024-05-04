@@ -1,6 +1,7 @@
 @import "/src/variables.scss";
 
 :host {
+  display: block;
   padding: $gap-s;
   flex: 1;
 }

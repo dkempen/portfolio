@@ -1,5 +1,6 @@
+@if ((succeeded$ | async) !== true) {
+
 <form
-  *ngIf="(succeeded$ | async) !== true"
   #contactForm="ngForm"
   class="card bg-body-secondary p-3 text-start"
   (ngSubmit)="contactForm.form.valid && onSubmit()"
@@ -19,13 +20,12 @@
         [ngClass]="{ 'is-invalid': contactForm.submitted && name.invalid }"
         required
       />
-      <div
-        class="invalid-feedback"
-        *ngIf="contactForm.submitted && name.invalid"
-      >
+      @if (contactForm.submitted && name.invalid;) {
+      <div class="invalid-feedback">
         {{ "contact.name" | translate }}
         {{ "contact.isRequired" | translate }}
       </div>
+      }
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">{{
@@ -42,18 +42,16 @@
         required
         email
       />
-      <div
-        *ngIf="contactForm.submitted && email.errors"
-        class="invalid-feedback"
-      >
-        <div *ngIf="email.errors['required']">
-          {{ "contact.email" | translate }}
-          {{ "contact.isRequired" | translate }}
-        </div>
-        <div *ngIf="email.errors['email']">
-          {{ "contact.emailInvalid" | translate }}
-        </div>
+      @if (contactForm.submitted && email.errors) {
+      <div class="invalid-feedback">
+        @if (email.errors['required']) {
+        {{ "contact.email" | translate }}
+        {{ "contact.isRequired" | translate }}
+        } @else if (email.errors['email']) {
+        {{ "contact.emailInvalid" | translate }}
+        }
       </div>
+      }
     </div>
   </div>
   <div class="mb-3">
@@ -71,37 +69,35 @@
       [ngClass]="{ 'is-invalid': contactForm.submitted && message.invalid }"
       required
     ></textarea>
-    <div
-      class="invalid-feedback"
-      *ngIf="contactForm.submitted && message.invalid"
-    >
+    @if (contactForm.submitted && message.invalid) {
+    <div class="invalid-feedback">
       {{ "contact.message" | translate }}
       {{ "contact.isRequired" | translate }}
     </div>
+    }
   </div>
   <button
     type="submit"
     class="btn btn-primary align-self-center"
     [disabled]="submitting$ | async"
   >
-    <i *ngIf="(submitting$ | async) === false" class="bi bi-send-fill"></i>
-    <div
-      *ngIf="submitting$ | async"
-      class="spinner-border spinner-border-sm"
-      role="status"
-    >
+    @if ((submitting$ | async) === false) {
+    <i class="bi bi-send-fill"></i>
+    } @else {
+    <div class="spinner-border spinner-border-sm" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
+    }
     {{ "contact.submit" | translate }}
   </button>
-  <p
-    *ngIf="(submitting$ | async) === false && (succeeded$ | async) === false"
-    class="text-center text-danger mt-3 mb-0"
-  >
+  @if ((submitting$ | async) === false && (succeeded$ | async) === false) {
+  <p class="text-center text-danger mt-3 mb-0">
     {{ "contact.error" | translate }}
   </p>
+  }
 </form>
-
-<p *ngIf="succeeded$ | async" class="text-center">
+} @else {
+<p class="text-center">
   {{ "contact.thanks" | translate }}
 </p>
+}

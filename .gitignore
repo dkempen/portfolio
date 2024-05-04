@@ -30,6 +30,7 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+/.nx/cache
 .sass-cache/
 /connect.lock
 /coverage
@@ -46,3 +47,4 @@ Thumbs.db
 *-debug.log
 .runtimeconfig.json
 environment.prod.ts
+environment.dev.ts

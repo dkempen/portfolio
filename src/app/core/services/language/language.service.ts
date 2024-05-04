@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { StorageService } from '../storage/storage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Languages } from '../../../shared/models/languages';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
   private language: BehaviorSubject<Languages>;
-  get language$(): Observable<Languages> {
-    return this.language.asObservable();
-  }
 
   constructor(
     private translate: TranslateService,
@@ -22,12 +19,16 @@ export class LanguageService {
     this.setLanguage(language);
   }
 
-  getPreferredTheme(language: Languages): Languages {
+  public get language$(): Observable<Languages> {
+    return this.language.asObservable();
+  }
+
+  public getPreferredTheme(language: Languages): Languages {
     if (language) return language;
     return <Languages>navigator.language;
   }
 
-  setLanguage(language: Languages) {
+  public setLanguage(language: Languages): void {
     this.storageService.setLanguage(language);
     this.translate.use(language);
     this.language.next(language);

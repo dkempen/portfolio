@@ -18,7 +18,6 @@
         "@angular-eslint/directive-selector": [
           "error",
           {
-            "type": "attribute",
             "prefix": "app",
             "style": "camelCase"
           }
@@ -30,7 +29,34 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "ignoredMethodNames": [
+              "ngOnInit",
+              "ngOnChanges"
+            ],
+            "overrides": {
+              "constructors": "off",
+              "properties": "no-public"
+            }
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "enumMember",
+            "format": [
+              "PascalCase"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-useless-constructor": "error"
       }
     },
     {

@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   FirebaseDevelopmentService,
   FirebaseService,
 } from '../../../core/services/firebase/firebase.service';
-import { PortfolioModule } from '../../portfolio.module';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ContactComponent } from './contact.component';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -15,12 +15,7 @@ describe('ContactComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ContactComponent],
-      imports: [
-        RouterTestingModule,
-        PortfolioModule,
-        TranslateModule.forRoot(),
-      ],
+      imports: [HttpClientModule, RouterModule, TranslateModule.forRoot()],
       providers: [
         {
           provide: FirebaseService,
