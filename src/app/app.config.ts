@@ -13,7 +13,7 @@ import {
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { provideRouter } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { provideServiceWorker } from '@angular/service-worker';
 import {
   TranslateLoader,
   TranslateModule,
@@ -38,15 +38,11 @@ const firebaseProviders: EnvironmentProviders = importProvidersFrom([
   ScreenTrackingService,
 ]);
 
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
-
 const translateConfig: TranslateModuleConfig = {
   defaultLanguage: 'en',
   loader: {
     provide: TranslateLoader,
-    useFactory: HttpLoaderFactory,
+    useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
     deps: [HttpClient],
   },
 };
@@ -60,14 +56,12 @@ export const appConfig: ApplicationConfig = {
         ? FirebaseService
         : FirebaseDevelopmentService,
     },
-    importProvidersFrom([
-      ServiceWorkerModule.register('ngsw-worker.js', {
-        enabled: environment.production,
-        registrationStrategy: 'registerWhenStable:30000',
-      }),
-      TranslateModule.forRoot(translateConfig),
-    ]),
     provideHttpClient(),
     provideRouter(routes),
+    importProvidersFrom([TranslateModule.forRoot(translateConfig)]),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 };

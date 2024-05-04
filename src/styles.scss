@@ -1,9 +1,9 @@
 /* Imports */
 
 @import "/src/variables.scss";
+
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.min.css";
-@import "flag-icons/css/flag-icons.min.css";
 
 /* Root styles */
 
@@ -21,6 +21,38 @@ router-outlet + *:not(app-footer) {
 
 router-outlet:has(+ app-footer) {
   flex-grow: 1;
+}
+
+/* Flags extracted from flag-icons */
+
+.fib,
+.fi {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.fi {
+  position: relative;
+  display: inline-block;
+  width: 1.333333em;
+  line-height: 1em;
+}
+
+.fi:before {
+  content: " ";
+}
+
+.fi.fis {
+  width: 1em;
+}
+
+.fi-nl {
+  background-image: url(assets/flags/nl.svg);
+}
+
+.fi-gb {
+  background-image: url(assets/flags/gb.svg);
 }
 
 /* Custom scrollbar */

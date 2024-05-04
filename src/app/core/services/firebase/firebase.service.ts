@@ -3,7 +3,9 @@ import { Analytics, logEvent } from '@angular/fire/analytics';
 import { Performance } from '@angular/fire/performance';
 import { IFirebaseService, LogEvent } from '../../models/firebase-service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class FirebaseService implements IFirebaseService {
   protected performance = inject(Performance);
   protected analytics = inject(Analytics);
