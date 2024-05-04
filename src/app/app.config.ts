@@ -60,7 +60,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom([TranslateModule.forRoot(translateConfig)]),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: environment.production,
+      enabled: false ?? environment.production,
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
