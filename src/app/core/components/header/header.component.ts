@@ -17,7 +17,6 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
     LanguageToggleComponent,
     DividerComponent,
   ],
-  standalone: true,
 })
 export class HeaderComponent {
   public goTo(location: string): void {

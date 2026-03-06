@@ -7,6 +7,5 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './not-found-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslateModule],
-  standalone: true,
 })
 export class NotFoundPageComponent {}

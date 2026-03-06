@@ -23,7 +23,7 @@ export class FormspreeService {
       },
       {
         headers: httpHeaders,
-      }
+      },
     );
   }
 }

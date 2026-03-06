@@ -9,7 +9,6 @@ import { FirebaseService } from './core/services/firebase/firebase.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [RouterModule, HeaderComponent, FooterComponent],
-  standalone: true,
 })
 export class AppComponent {
   protected firebaseService = inject(FirebaseService);

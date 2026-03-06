@@ -13,7 +13,7 @@ describe('SkillComponent', () => {
     });
     fixture = TestBed.createComponent(SkillComponent);
     component = fixture.componentInstance;
-    (component.skill = {
+    ((component.skill = {
       icon: 'icon',
       title: {
         en: 'title',
@@ -26,7 +26,7 @@ describe('SkillComponent', () => {
       languages: ['language'],
       tools: ['tool'],
     }),
-      fixture.detectChanges();
+      fixture.detectChanges());
   });
 
   it('should create', () => {

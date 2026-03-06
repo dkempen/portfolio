@@ -12,7 +12,7 @@ export class IpService {
     return firstValueFrom(
       this.client
         .get<{ ip: string }>('https://ipapi.co/json')
-        .pipe(map((x) => x.ip))
+        .pipe(map((x) => x.ip)),
     );
   }
 }

@@ -12,7 +12,7 @@ export class LanguageService {
 
   constructor(
     private translate: TranslateService,
-    private storageService: StorageService
+    private storageService: StorageService,
   ) {
     const language = storageService.getLanguage();
     this.language = new BehaviorSubject<Languages>(language);

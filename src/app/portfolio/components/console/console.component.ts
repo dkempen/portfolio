@@ -16,7 +16,6 @@ import { StorageService } from '../../../core/services/storage/storage.service';
   styleUrl: './console.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
-  standalone: true,
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
   @Input() texts: string[] | undefined;
@@ -36,7 +35,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
 
   constructor(
     private translate: TranslateService,
-    private storageService: StorageService
+    private storageService: StorageService,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -55,7 +54,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     this.lastVisitIp = lastVisit[1];
 
     this.translate.onLangChange.subscribe(
-      async () => await this.updateLanguageText()
+      async () => await this.updateLanguageText(),
     );
     await this.updateLanguageText();
 
@@ -81,7 +80,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
       }
       this.displayedText = this.texts[this.textIndex].substring(
         0,
-        this.charIndex + 1
+        this.charIndex + 1,
       );
       this.displayedText$.next(this.displayedText);
     });

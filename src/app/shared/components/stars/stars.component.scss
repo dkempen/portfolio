@@ -1,12 +1,14 @@
+@use "sass:string";
+@use "sass:math";
 $width: 2000;
 
 @function multiple-box-shadow($n) {
-  $value: "#{random($width * 2) - $width}px #{random($width * 2) - $width}px #FFF";
+  $value: "#{math.random($width * 2) - $width}px #{math.random($width * 2) - $width}px #FFF";
   @for $i from 2 through $n {
-    $value: "#{$value} , #{random($width * 2) - $width}px #{random($width * 2) - $width}px #FFF";
+    $value: "#{$value} , #{math.random($width * 2) - $width}px #{math.random($width * 2) - $width}px #FFF";
   }
 
-  @return unquote($value);
+  @return string.unquote($value);
 }
 
 $shadows-small: multiple-box-shadow(1400);

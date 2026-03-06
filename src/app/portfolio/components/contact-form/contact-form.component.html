@@ -1,103 +1,102 @@
 @if ((succeeded$ | async) !== true) {
-
-<form
-  #contactForm="ngForm"
-  class="card bg-body-secondary p-3 text-start"
-  (ngSubmit)="contactForm.form.valid && onSubmit()"
->
-  <div class="d-flex flex-md-row flex-column gap-3">
-    <div class="mb-3">
-      <label for="name" class="form-label">{{
-        "contact.name" | translate
-      }}</label>
-      <input
-        [(ngModel)]="model.name"
-        #name="ngModel"
-        name="name"
-        type="text"
-        class="form-control"
-        [placeholder]="'contact.namePlaceholder' | translate"
-        [ngClass]="{ 'is-invalid': contactForm.submitted && name.invalid }"
-        required
-      />
-      @if (contactForm.submitted && name.invalid;) {
-      <div class="invalid-feedback">
-        {{ "contact.name" | translate }}
-        {{ "contact.isRequired" | translate }}
-      </div>
-      }
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">{{
-        "contact.email" | translate
-      }}</label>
-      <input
-        [(ngModel)]="model.email"
-        #email="ngModel"
-        name="email"
-        type="email"
-        class="form-control"
-        [placeholder]="'contact.emailPlaceholder' | translate"
-        [ngClass]="{ 'is-invalid': contactForm.submitted && email.invalid }"
-        required
-        email
-      />
-      @if (contactForm.submitted && email.errors) {
-      <div class="invalid-feedback">
-        @if (email.errors['required']) {
-        {{ "contact.email" | translate }}
-        {{ "contact.isRequired" | translate }}
-        } @else if (email.errors['email']) {
-        {{ "contact.emailInvalid" | translate }}
+  <form
+    #contactForm="ngForm"
+    class="card bg-body-secondary p-3 text-start"
+    (ngSubmit)="contactForm.form.valid && onSubmit()"
+  >
+    <div class="d-flex flex-md-row flex-column gap-3">
+      <div class="mb-3">
+        <label for="name" class="form-label">{{
+          "contact.name" | translate
+        }}</label>
+        <input
+          [(ngModel)]="model.name"
+          #name="ngModel"
+          name="name"
+          type="text"
+          class="form-control"
+          [placeholder]="'contact.namePlaceholder' | translate"
+          [ngClass]="{ 'is-invalid': contactForm.submitted && name.invalid }"
+          required
+        />
+        @if (contactForm.submitted && name.invalid) {
+          <div class="invalid-feedback">
+            {{ "contact.name" | translate }}
+            {{ "contact.isRequired" | translate }}
+          </div>
         }
       </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">{{
+          "contact.email" | translate
+        }}</label>
+        <input
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          name="email"
+          type="email"
+          class="form-control"
+          [placeholder]="'contact.emailPlaceholder' | translate"
+          [ngClass]="{ 'is-invalid': contactForm.submitted && email.invalid }"
+          required
+          email
+        />
+        @if (contactForm.submitted && email.errors) {
+          <div class="invalid-feedback">
+            @if (email.errors["required"]) {
+              {{ "contact.email" | translate }}
+              {{ "contact.isRequired" | translate }}
+            } @else if (email.errors["email"]) {
+              {{ "contact.emailInvalid" | translate }}
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">{{
+        "contact.message" | translate
+      }}</label>
+      <textarea
+        [(ngModel)]="model.message"
+        name="message"
+        #message="ngModel"
+        type="textarea"
+        rows="3"
+        class="form-control"
+        [placeholder]="'contact.messagePlaceholder' | translate"
+        [ngClass]="{ 'is-invalid': contactForm.submitted && message.invalid }"
+        required
+      ></textarea>
+      @if (contactForm.submitted && message.invalid) {
+        <div class="invalid-feedback">
+          {{ "contact.message" | translate }}
+          {{ "contact.isRequired" | translate }}
+        </div>
       }
     </div>
-  </div>
-  <div class="mb-3">
-    <label for="message" class="form-label">{{
-      "contact.message" | translate
-    }}</label>
-    <textarea
-      [(ngModel)]="model.message"
-      name="message"
-      #message="ngModel"
-      type="textarea"
-      rows="3"
-      class="form-control"
-      [placeholder]="'contact.messagePlaceholder' | translate"
-      [ngClass]="{ 'is-invalid': contactForm.submitted && message.invalid }"
-      required
-    ></textarea>
-    @if (contactForm.submitted && message.invalid) {
-    <div class="invalid-feedback">
-      {{ "contact.message" | translate }}
-      {{ "contact.isRequired" | translate }}
-    </div>
+    <button
+      type="submit"
+      class="btn btn-primary align-self-center"
+      [disabled]="submitting$ | async"
+    >
+      @if ((submitting$ | async) === false) {
+        <i class="bi bi-send-fill"></i>
+      } @else {
+        <div class="spinner-border spinner-border-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      }
+      {{ "contact.submit" | translate }}
+    </button>
+    @if ((submitting$ | async) === false && (succeeded$ | async) === false) {
+      <p class="text-center text-danger mt-3 mb-0">
+        {{ "contact.error" | translate }}
+      </p>
     }
-  </div>
-  <button
-    type="submit"
-    class="btn btn-primary align-self-center"
-    [disabled]="submitting$ | async"
-  >
-    @if ((submitting$ | async) === false) {
-    <i class="bi bi-send-fill"></i>
-    } @else {
-    <div class="spinner-border spinner-border-sm" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    }
-    {{ "contact.submit" | translate }}
-  </button>
-  @if ((submitting$ | async) === false && (succeeded$ | async) === false) {
-  <p class="text-center text-danger mt-3 mb-0">
-    {{ "contact.error" | translate }}
-  </p>
-  }
-</form>
+  </form>
 } @else {
-<p class="text-center">
-  {{ "contact.thanks" | translate }}
-</p>
+  <p class="text-center">
+    {{ "contact.thanks" | translate }}
+  </p>
 }

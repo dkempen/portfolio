@@ -19,7 +19,6 @@ import { ContactForm } from '../../../shared/models/contact-form';
   styleUrl: './contact-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, FormsModule],
-  standalone: true,
 })
 export class ContactFormComponent implements OnInit {
   model: ContactForm = {};
@@ -30,7 +29,7 @@ export class ContactFormComponent implements OnInit {
   constructor(
     private formspreeService: FormspreeService,
     private firebaseService: FirebaseService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {

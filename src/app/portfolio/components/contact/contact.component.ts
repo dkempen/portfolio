@@ -12,7 +12,6 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, NgbTooltip, ContactFormComponent],
-  standalone: true,
 })
 export class ContactComponent {
   contacts: Contact[] = [

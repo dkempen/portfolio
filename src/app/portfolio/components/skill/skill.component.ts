@@ -10,7 +10,6 @@ import { Skill } from '../../../shared/models/skill';
   styleUrl: './skill.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule],
-  standalone: true,
 })
 export class SkillComponent {
   @Input() skill!: Skill;
