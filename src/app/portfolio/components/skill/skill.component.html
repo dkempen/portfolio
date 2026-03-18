@@ -2,16 +2,16 @@
 <h3>{{ title }}</h3>
 <p>{{ description }}</p>
 @if (skill.languages && skill.languages.length !== 0) {
-<div>
-  <p class="text-primary fw-semibold fs-5 my-1">
-    {{ "skill.languages" | translate }}
-  </p>
-  <ul>
-    @for (language of skill.languages; track $index) {
-    <li>{{ language }}</li>
-    }
-  </ul>
-</div>
+  <div>
+    <p class="text-primary fw-semibold fs-5 my-1">
+      {{ "skill.languages" | translate }}
+    </p>
+    <ul>
+      @for (language of skill.languages; track $index) {
+        <li>{{ language }}</li>
+      }
+    </ul>
+  </div>
 }
 <div>
   <p class="text-primary fw-semibold fs-5 my-1">
@@ -19,7 +19,7 @@
   </p>
   <ul>
     @for (tool of skill.tools; track $index) {
-    <li>{{ tool }}</li>
+      <li>{{ tool }}</li>
     }
   </ul>
 </div>

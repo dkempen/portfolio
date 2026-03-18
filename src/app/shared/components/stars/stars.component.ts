@@ -6,7 +6,6 @@ import { fromEvent, throttleTime } from 'rxjs';
   templateUrl: './stars.component.html',
   styleUrl: './stars.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
 })
 export class StarsComponent implements OnInit {
   private readonly MAX_TRANSLATION = 3000;
@@ -29,10 +28,8 @@ export class StarsComponent implements OnInit {
       const strength = this.MAX_TRANSLATION * this.DEPTH_MULTIPLIER;
       const translate = `${strength * x}% ${strength * y}%`;
       layer?.animate(
-        {
-          translate,
-        },
-        { duration: 10000, fill: 'forwards', easing: 'ease' }
+        { translate },
+        { duration: 10000, fill: 'forwards', easing: 'ease' },
       );
     }
   }

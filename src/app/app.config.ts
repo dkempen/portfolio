@@ -1,25 +1,20 @@
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import {
   ApplicationConfig,
-  EnvironmentProviders,
   enableProdMode,
-  importProvidersFrom,
+  provideZoneChangeDetection,
 } from '@angular/core';
 import {
-  ScreenTrackingService,
   getAnalytics,
   provideAnalytics,
+  ScreenTrackingService,
 } from '@angular/fire/analytics';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import {
-  TranslateLoader,
-  TranslateModule,
-  TranslateModuleConfig,
-} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import {
@@ -31,25 +26,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-const firebaseProviders: EnvironmentProviders = importProvidersFrom([
-  provideFirebaseApp(() => initializeApp(environment.firebase)),
-  providePerformance(() => getPerformance()),
-  provideAnalytics(() => getAnalytics()),
-  ScreenTrackingService,
-]);
-
-const translateConfig: TranslateModuleConfig = {
-  defaultLanguage: 'en',
-  loader: {
-    provide: TranslateLoader,
-    useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
-    deps: [HttpClient],
-  },
-};
-
 export const appConfig: ApplicationConfig = {
   providers: [
-    firebaseProviders,
     {
       provide: FirebaseService,
       useClass: environment.production
@@ -58,9 +36,15 @@ export const appConfig: ApplicationConfig = {
     },
     provideHttpClient(),
     provideRouter(routes),
-    importProvidersFrom([TranslateModule.forRoot(translateConfig)]),
+    provideZoneChangeDetection(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    providePerformance(() => getPerformance()),
+    provideAnalytics(() => getAnalytics()),
+    ScreenTrackingService,
+    provideTranslateService({ fallbackLang: 'en' }),
+    provideTranslateHttpLoader(),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: false && environment.production,
+      enabled: false,
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],

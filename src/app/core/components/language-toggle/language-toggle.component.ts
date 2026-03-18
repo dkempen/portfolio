@@ -12,7 +12,6 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrl: './language-toggle.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, NgbTooltip],
-  standalone: true,
 })
 export class LanguageToggleComponent {
   language$: Observable<Languages>;

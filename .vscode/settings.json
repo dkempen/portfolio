@@ -6,5 +6,6 @@
       "rule": "*",
       "severity": "warn"
     }
-  ]
+  ],
+  "prettier.trailingComma": "es5"
 }

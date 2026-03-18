@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, NgbTooltip],
-  standalone: true,
 })
 export class FooterComponent {
   year: string;

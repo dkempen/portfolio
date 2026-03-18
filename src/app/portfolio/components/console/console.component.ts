@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   Input,
   OnDestroy,
   OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Subscription, firstValueFrom, interval } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, interval, Subscription } from 'rxjs';
 import { StorageService } from '../../../core/services/storage/storage.service';
 
 @Component({
@@ -16,7 +17,6 @@ import { StorageService } from '../../../core/services/storage/storage.service';
   styleUrl: './console.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
-  standalone: true,
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
   @Input() texts: string[] | undefined;
@@ -34,10 +34,8 @@ export class ConsoleComponent implements OnInit, OnDestroy {
   private charIndex = -this.MILLIS_BEFORE / this.MILLIS_PER_CHAR;
   private backtracking = false;
 
-  constructor(
-    private translate: TranslateService,
-    private storageService: StorageService
-  ) {}
+  private translate = inject(TranslateService);
+  private storageService = inject(StorageService);
 
   async ngOnInit(): Promise<void> {
     const lastVisit = await this.storageService.getLastVisit();
@@ -55,7 +53,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     this.lastVisitIp = lastVisit[1];
 
     this.translate.onLangChange.subscribe(
-      async () => await this.updateLanguageText()
+      async () => await this.updateLanguageText(),
     );
     await this.updateLanguageText();
 
@@ -81,7 +79,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
       }
       this.displayedText = this.texts[this.textIndex].substring(
         0,
-        this.charIndex + 1
+        this.charIndex + 1,
       );
       this.displayedText$.next(this.displayedText);
     });

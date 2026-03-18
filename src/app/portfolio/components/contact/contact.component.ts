@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { LogEvent } from '../../../core/models/firebase-service';
@@ -12,7 +12,6 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, NgbTooltip, ContactFormComponent],
-  standalone: true,
 })
 export class ContactComponent {
   contacts: Contact[] = [
@@ -36,7 +35,7 @@ export class ContactComponent {
     },
   ];
 
-  constructor(private firebaseService: FirebaseService) {}
+  private firebaseService = inject(FirebaseService);
 
   public onContactClick(type: LogEvent): void {
     this.firebaseService.logEvent(type);

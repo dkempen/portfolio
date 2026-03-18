@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import skills from 'src/assets/data/skills.json';
@@ -15,7 +14,6 @@ import { SkillComponent } from '../../components/skill/skill.component';
   styleUrl: './portfolio-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
     TranslateModule,
     StarsComponent,
     ConsoleComponent,
@@ -23,7 +21,6 @@ import { SkillComponent } from '../../components/skill/skill.component';
     SkillComponent,
     ContactComponent,
   ],
-  standalone: true,
 })
 export class PortfolioPageComponent {
   skills: Skill[] = skills;

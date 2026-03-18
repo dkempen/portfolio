@@ -2,14 +2,14 @@
 
 <div class="d-flex gap-3">
   @for (contact of contacts; track contact.name) {
-  <a
-    class="btn btn-primary btn-round"
-    [href]="contact.uri"
-    target="_blank"
-    [ngbTooltip]="contact.name"
-    (click)="onContactClick(contact.callback)"
-  >
-    <i class="bi" [ngClass]="contact.icon"></i>
-  </a>
+    <a
+      class="btn btn-primary btn-round"
+      [href]="contact.uri"
+      target="_blank"
+      [ngbTooltip]="contact.name"
+      (click)="onContactClick(contact.callback)"
+    >
+      <i class="bi" [ngClass]="contact.icon"></i>
+    </a>
   }
 </div>

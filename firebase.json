@@ -2,9 +2,7 @@
   "hosting": [
     {
       "target": "daanvankempen-f242d",
-      "source": ".",
-      "frameworksBackend": {}
+      "source": "."
     }
-  ],
-  "singleProjectMode": true
+  ]
 }

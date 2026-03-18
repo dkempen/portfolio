@@ -14,7 +14,10 @@
   <h2>{{ "portfolio.skills" | translate }}</h2>
   <div class="d-flex flex-column flex-md-row align-items-stretch gap-4 w-100">
     @for (skill of skills; track skill.title) {
-    <app-skill class="skill card bg-body-secondary" [skill]="skill"></app-skill>
+      <app-skill
+        class="skill card bg-body-secondary"
+        [skill]="skill"
+      ></app-skill>
     }
   </div>
 </section>

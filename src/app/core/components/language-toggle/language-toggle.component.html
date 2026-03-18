@@ -4,10 +4,13 @@
   (click)="onClick()"
 >
   <div>
-    @switch (language$ | async) {@case (languages.English) {
-    <span class="fi fi-gb"></span>
-    } @case (languages.Dutch) {
-    <span class="fi fi-nl"></span>
-    } }
+    @switch (language$ | async) {
+      @case (languages.English) {
+        <span class="fi fi-gb"></span>
+      }
+      @case (languages.Dutch) {
+        <span class="fi fi-nl"></span>
+      }
+    }
   </div>
 </button>

@@ -20,7 +20,7 @@ describe('AppComponent', () => {
         { provide: Performance, useValue: {} },
         { provide: Analytics, useValue: {} },
       ],
-    })
+    }),
   );
 
   it('should create the app', () => {

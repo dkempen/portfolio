@@ -12,7 +12,6 @@ import { ThemeService } from '../../services/theme/theme.service';
   styleUrl: './theme-toggle.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, TranslateModule, NgbTooltip],
-  standalone: true,
 })
 export class ThemeToggleComponent {
   theme$: Observable<Themes>;

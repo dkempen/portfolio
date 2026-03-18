@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Languages } from '../../../shared/models/languages';
@@ -9,12 +9,11 @@ import { StorageService } from '../storage/storage.service';
 })
 export class LanguageService {
   private language: BehaviorSubject<Languages>;
+  private translate = inject(TranslateService);
+  private storageService = inject(StorageService);
 
-  constructor(
-    private translate: TranslateService,
-    private storageService: StorageService
-  ) {
-    const language = storageService.getLanguage();
+  constructor() {
+    const language = this.storageService.getLanguage();
     this.language = new BehaviorSubject<Languages>(language);
     this.setLanguage(language);
   }

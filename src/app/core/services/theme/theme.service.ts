@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Themes } from '../../../shared/models/themes';
 import { StorageService } from '../storage/storage.service';
@@ -9,17 +8,16 @@ import { StorageService } from '../storage/storage.service';
 })
 export class ThemeService {
   private theme: BehaviorSubject<Themes>;
+  private document = inject(DOCUMENT);
+  private storageService = inject(StorageService);
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private storageService: StorageService
-  ) {
+  constructor() {
     window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', () =>
-        this.setTheme(storageService.getTheme())
+        this.setTheme(this.storageService.getTheme()),
       );
-    const theme = storageService.getTheme();
+    const theme = this.storageService.getTheme();
     this.theme = new BehaviorSubject<Themes>(theme);
     this.setTheme(theme);
   }
@@ -38,7 +36,7 @@ export class ThemeService {
   public setTheme(theme: Themes): void {
     this.document.documentElement.setAttribute(
       'data-bs-theme',
-      this.getPreferredTheme(theme)
+      this.getPreferredTheme(theme),
     );
     this.storageService.setTheme(theme);
     this.theme.next(theme);
