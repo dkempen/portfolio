@@ -44,7 +44,7 @@ export const appConfig: ApplicationConfig = {
     provideTranslateService({ fallbackLang: 'en' }),
     provideTranslateHttpLoader(),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: false && environment.production,
+      enabled: false,
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],

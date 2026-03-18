@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   Input,
   OnDestroy,
   OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Subscription, firstValueFrom, interval } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, interval, Subscription } from 'rxjs';
 import { StorageService } from '../../../core/services/storage/storage.service';
 
 @Component({
@@ -33,10 +34,8 @@ export class ConsoleComponent implements OnInit, OnDestroy {
   private charIndex = -this.MILLIS_BEFORE / this.MILLIS_PER_CHAR;
   private backtracking = false;
 
-  constructor(
-    private translate: TranslateService,
-    private storageService: StorageService,
-  ) {}
+  private translate = inject(TranslateService);
+  private storageService = inject(StorageService);
 
   async ngOnInit(): Promise<void> {
     const lastVisit = await this.storageService.getLastVisit();

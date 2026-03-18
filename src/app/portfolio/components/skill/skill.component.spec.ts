@@ -13,6 +13,7 @@ describe('SkillComponent', () => {
     });
     fixture = TestBed.createComponent(SkillComponent);
     component = fixture.componentInstance;
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     ((component.skill = {
       icon: 'icon',
       title: {

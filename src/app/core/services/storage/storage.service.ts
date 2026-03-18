@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Languages } from '../../../shared/models/languages';
 import { Preferences } from '../../../shared/models/preferences';
 import { Themes } from '../../../shared/models/themes';
@@ -10,8 +10,9 @@ import { IpService } from '../ip/ip.service';
 export class StorageService {
   private readonly STORAGE_KEY = 'preferences';
   private preferences!: Preferences;
+  private ipService = inject(IpService);
 
-  constructor(private ipService: IpService) {
+  constructor() {
     this.getPreferences();
   }
 

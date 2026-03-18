@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  inject,
   OnInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -26,11 +27,9 @@ export class ContactFormComponent implements OnInit {
   submitting$ = new BehaviorSubject<boolean>(false);
   succeeded$ = new BehaviorSubject<boolean | undefined>(undefined);
 
-  constructor(
-    private formspreeService: FormspreeService,
-    private firebaseService: FirebaseService,
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {}
+  private formspreeService = inject(FormspreeService);
+  private firebaseService = inject(FirebaseService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
     this.changeDetectorRef.detectChanges();

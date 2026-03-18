@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+} from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { toString } from '../../../shared/models/localized-string';
 import { Skill } from '../../../shared/models/skill';
@@ -16,7 +21,9 @@ export class SkillComponent {
   title!: string;
   description!: string;
 
-  constructor(private translate: TranslateService) {
+  private translate = inject(TranslateService);
+
+  constructor() {
     this.translate.onLangChange.subscribe(() => {
       const language = this.translate.currentLang;
       this.title = toString(this.skill.title, language);
