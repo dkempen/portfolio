@@ -14,8 +14,17 @@ jobs:
       - name: Check out master branch
         uses: actions/checkout@v6
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm i
 
       - name: Create production environment file
         run: |
@@ -23,7 +32,7 @@ jobs:
           echo "${{ secrets.FIREBASE_CONFIG }}" | base64 -d >> src/environments/environment.prod.ts
 
       - name: Build app for release
-        run: npm run release
+        run: pnpm release
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
