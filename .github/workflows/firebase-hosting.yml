@@ -28,6 +28,7 @@ jobs:
 
       - name: Create production environment file
         run: |
+          echo "export const environment = { production: false };" > src/environments/environment.dev.ts
           echo -n "export const environment = " > src/environments/environment.prod.ts
           echo "${{ secrets.FIREBASE_CONFIG }}" | base64 -d >> src/environments/environment.prod.ts
 
