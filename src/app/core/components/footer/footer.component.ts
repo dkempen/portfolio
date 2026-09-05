@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TranslateModule, NgbTooltip],
+  imports: [CommonModule, TranslatePipe, NgbTooltip],
 })
 export class FooterComponent {
   year: string;

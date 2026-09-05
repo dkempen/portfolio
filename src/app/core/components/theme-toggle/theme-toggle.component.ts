@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Observable, firstValueFrom } from 'rxjs';
 import { Themes } from '../../../shared/models/themes';
 import { ThemeService } from '../../services/theme/theme.service';
@@ -10,8 +10,7 @@ import { ThemeService } from '../../services/theme/theme.service';
   selector: 'app-theme-toggle',
   templateUrl: './theme-toggle.component.html',
   styleUrl: './theme-toggle.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TranslateModule, NgbTooltip],
+  imports: [CommonModule, TranslatePipe, NgbTooltip],
 })
 export class ThemeToggleComponent {
   theme$: Observable<Themes>;

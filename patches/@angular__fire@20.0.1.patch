@@ -1,0 +1,149 @@
+diff --git a/analytics/index.d.ts b/analytics/index.d.ts
+index 7ecf0ee6c6501964e1c68c586ac60bf0d0df5282..ea3deef010aa20d133b9ca38cd643e6f9284cae7 100644
+--- a/analytics/index.d.ts
++++ b/analytics/index.d.ts	
+@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
+ import { Analytics as Analytics$1, getAnalytics as getAnalytics$1, getGoogleAnalyticsClientId as getGoogleAnalyticsClientId$1, initializeAnalytics as initializeAnalytics$1, isSupported as isSupported$1, logEvent as logEvent$1, setAnalyticsCollectionEnabled as setAnalyticsCollectionEnabled$1, setConsent as setConsent$1, setCurrentScreen as setCurrentScreen$1, setDefaultEventParameters as setDefaultEventParameters$1, setUserId as setUserId$1, setUserProperties as setUserProperties$1, settings as settings$1 } from 'firebase/analytics';
+ export * from 'firebase/analytics';
+ import * as i0 from '@angular/core';
+-import { OnDestroy, NgZone, Injector, ComponentFactoryResolver, EnvironmentProviders } from '@angular/core';
++import { OnDestroy, NgZone, Injector, EnvironmentProviders } from '@angular/core';
+ import { Title } from '@angular/platform-browser';
+ import { Router } from '@angular/router';
+ import { Auth } from '@angular/fire/auth';
+@@ -41,7 +41,7 @@ declare const PAGE_PATH_KEY = "page_path";
+ declare const PAGE_TITLE_KEY = "page_title";
+ declare const SCREEN_CLASS_KEY = "screen_class";
+ declare const SCREEN_NAME_KEY = "screen_name";
+-declare const ɵscreenViewEvent: (router: Router, title: Title | null, componentFactoryResolver: ComponentFactoryResolver) => Observable<{
++declare const ɵscreenViewEvent: (router: Router, title: Title | null) => Observable<{
+     [SCREEN_NAME_KEY]: string;
+     [PAGE_PATH_KEY]: string;
+     [FIREBASE_EVENT_ORIGIN_KEY]: "auto";
+@@ -57,7 +57,7 @@ declare const ɵscreenViewEvent: (router: Router, title: Title | null, component
+ }>;
+ declare class ScreenTrackingService implements OnDestroy {
+     private disposable;
+-    constructor(router: Router, title: Title, componentFactoryResolver: ComponentFactoryResolver, zone: NgZone, userTrackingService: UserTrackingService, injector: Injector);
++    constructor(router: Router, title: Title, zone: NgZone, userTrackingService: UserTrackingService, injector: Injector);
+     ngOnDestroy(): void;
+     static ɵfac: i0.ɵɵFactoryDeclaration<ScreenTrackingService, [{ optional: true; }, { optional: true; }, null, null, { optional: true; }, null]>;
+     static ɵprov: i0.ɵɵInjectableDeclaration<ScreenTrackingService>;
+diff --git a/compat/analytics/index.d.ts b/compat/analytics/index.d.ts
+index 6e4ce96c10a491869e7ed872021f8b32cfb7df8d..51022a43008feafb40fad07a8420fb889980beab 100644
+--- a/compat/analytics/index.d.ts
++++ b/compat/analytics/index.d.ts	
+@@ -1,5 +1,5 @@
+ import * as i0 from '@angular/core';
+-import { InjectionToken, NgZone, OnDestroy, ComponentFactoryResolver } from '@angular/core';
++import { InjectionToken, NgZone, OnDestroy } from '@angular/core';
+ import { ɵAngularFireSchedulers as _AngularFireSchedulers } from '@angular/fire';
+ import { ɵPromiseProxy as _PromiseProxy, FirebaseApp } from '@angular/fire/compat';
+ import firebase from 'firebase/compat/app';
+@@ -35,7 +35,7 @@ declare class UserTrackingService implements OnDestroy {
+ 
+ declare class ScreenTrackingService implements OnDestroy {
+     private disposable;
+-    constructor(analytics: AngularFireAnalytics, router: Router, title: Title, componentFactoryResolver: ComponentFactoryResolver, zone: NgZone, userTrackingService: UserTrackingService);
++    constructor(analytics: AngularFireAnalytics, router: Router, title: Title, zone: NgZone, userTrackingService: UserTrackingService);
+     ngOnDestroy(): void;
+     static ɵfac: i0.ɵɵFactoryDeclaration<ScreenTrackingService, [null, { optional: true; }, { optional: true; }, null, null, { optional: true; }]>;
+     static ɵprov: i0.ɵɵInjectableDeclaration<ScreenTrackingService>;
+diff --git a/fesm2022/angular-fire-analytics.mjs b/fesm2022/angular-fire-analytics.mjs
+index 6e97f9e0461060146e496c81e709195d95240d79..ceacac5b2b4ae8d70be639237e06a97868149132 100644
+--- a/fesm2022/angular-fire-analytics.mjs
++++ b/fesm2022/angular-fire-analytics.mjs	
+@@ -111,7 +111,7 @@ const getScreenInstanceID = (params) => {
+         return ret;
+     }
+ };
+-const ɵscreenViewEvent = (router, title, componentFactoryResolver) => {
++const ɵscreenViewEvent = (router, title) => {
+     const activationEndEvents = router.events.pipe(filter(e => e instanceof ActivationEnd));
+     return activationEndEvents.pipe(switchMap(activationEnd => {
+         // router parseUrl is having trouble with outlets when they're empty
+@@ -155,8 +155,8 @@ const ɵscreenViewEvent = (router, title, componentFactoryResolver) => {
+             return of({ ...params, [SCREEN_CLASS_KEY]: component });
+         }
+         else if (component) {
+-            const componentFactory = componentFactoryResolver.resolveComponentFactory(component);
+-            return of({ ...params, [SCREEN_CLASS_KEY]: componentFactory.selector });
++            const selector = reflectComponentType(component)?.selector;
++            return of(selector ? { ...params, [SCREEN_CLASS_KEY]: selector } : null);
+         }
+         // lazy loads cause extra activations, ignore
+         return of(null);
+@@ -173,7 +173,7 @@ const ɵscreenViewEvent = (router, title, componentFactoryResolver) => {
+ };
+ class ScreenTrackingService {
+     disposable;
+-    constructor(router, title, componentFactoryResolver, zone, userTrackingService, injector) {
++    constructor(router, title, zone, userTrackingService, injector) {
+         registerVersion('angularfire', VERSION.full, 'screen-tracking');
+         // The APP_INITIALIZER that is making isSupported() sync for the sake of convenient DI
+         // may not be done when services are initialized. Guard the functionality by first ensuring
+@@ -184,7 +184,7 @@ class ScreenTrackingService {
+                 return;
+             }
+             zone.runOutsideAngular(() => {
+-                this.disposable = ɵscreenViewEvent(router, title, componentFactoryResolver).pipe(switchMap(async (params) => {
++                this.disposable = ɵscreenViewEvent(router, title).pipe(switchMap(async (params) => {
+                     if (userTrackingService) {
+                         await userTrackingService.initialized;
+                     }
+@@ -198,7 +198,7 @@ class ScreenTrackingService {
+             this.disposable.unsubscribe();
+         }
+     }
+-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, deps: [{ token: i1$1.Router, optional: true }, { token: i2.Title, optional: true }, { token: i0.ComponentFactoryResolver }, { token: i0.NgZone }, { token: UserTrackingService, optional: true }, { token: i0.Injector }], target: i0.ɵɵFactoryTarget.Injectable });
++    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, deps: [{ token: i1$1.Router, optional: true }, { token: i2.Title, optional: true }, { token: i0.NgZone }, { token: UserTrackingService, optional: true }, { token: i0.Injector }], target: i0.ɵɵFactoryTarget.Injectable });
+     static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService });
+ }
+ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, decorators: [{
+@@ -207,7 +207,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0", ngImpor
+                     type: Optional
+                 }] }, { type: i2.Title, decorators: [{
+                     type: Optional
+-                }] }, { type: i0.ComponentFactoryResolver }, { type: i0.NgZone }, { type: UserTrackingService, decorators: [{
++                }] }, { type: i0.NgZone }, { type: UserTrackingService, decorators: [{
+                     type: Optional
+                 }] }, { type: i0.Injector }] });
+ 
+diff --git a/fesm2022/angular-fire-compat-analytics.mjs b/fesm2022/angular-fire-compat-analytics.mjs
+index aea069479ce24423ed2087a9b65f07d7508b0a68..3a840ed7df159c4638ee1a0b4c26edd0996816ad 100644
+--- a/fesm2022/angular-fire-compat-analytics.mjs
++++ b/fesm2022/angular-fire-compat-analytics.mjs	
+@@ -220,13 +220,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0", ngImpor
+ const SCREEN_VIEW_EVENT = 'screen_view';
+ class ScreenTrackingService {
+     disposable;
+-    constructor(analytics, router, title, componentFactoryResolver, zone, userTrackingService) {
++    constructor(analytics, router, title, zone, userTrackingService) {
+         firebase.registerVersion('angularfire', VERSION.full, 'compat-screen-tracking');
+         if (!router || !analytics) {
+             return this;
+         }
+         zone.runOutsideAngular(() => {
+-            this.disposable = _screenViewEvent(router, title, componentFactoryResolver).pipe(switchMap(async (params) => {
++            this.disposable = _screenViewEvent(router, title).pipe(switchMap(async (params) => {
+                 if (userTrackingService) {
+                     await userTrackingService.initialized;
+                 }
+@@ -239,7 +239,7 @@ class ScreenTrackingService {
+             this.disposable.unsubscribe();
+         }
+     }
+-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, deps: [{ token: AngularFireAnalytics }, { token: i2$2.Router, optional: true }, { token: i3.Title, optional: true }, { token: i0.ComponentFactoryResolver }, { token: i0.NgZone }, { token: UserTrackingService, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
++    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, deps: [{ token: AngularFireAnalytics }, { token: i2$2.Router, optional: true }, { token: i3.Title, optional: true }, { token: i0.NgZone }, { token: UserTrackingService, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+     static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService });
+ }
+ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0", ngImport: i0, type: ScreenTrackingService, decorators: [{
+@@ -248,7 +248,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.0.0", ngImpor
+                     type: Optional
+                 }] }, { type: i3.Title, decorators: [{
+                     type: Optional
+-                }] }, { type: i0.ComponentFactoryResolver }, { type: i0.NgZone }, { type: UserTrackingService, decorators: [{
++                }] }, { type: i0.NgZone }, { type: UserTrackingService, decorators: [{
+                     type: Optional
+                 }] }] });
+ 

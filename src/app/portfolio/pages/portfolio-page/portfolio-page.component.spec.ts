@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HttpClientModule } from '@angular/common/http';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 import {
   FirebaseDevelopmentService,
   FirebaseService,
@@ -14,12 +13,12 @@ describe('PortfolioPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, TranslateModule.forRoot()],
       providers: [
         {
           provide: FirebaseService,
           useClass: FirebaseDevelopmentService,
         },
+        provideTranslateService(),
       ],
     });
     fixture = TestBed.createComponent(PortfolioPageComponent);

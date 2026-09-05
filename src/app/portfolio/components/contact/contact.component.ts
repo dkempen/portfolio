@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
 import { LogEvent } from '../../../core/models/firebase-service';
 import { FirebaseService } from '../../../core/services/firebase/firebase.service';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
@@ -10,8 +9,7 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TranslateModule, NgbTooltip, ContactFormComponent],
+  imports: [CommonModule, NgbTooltip, ContactFormComponent],
 })
 export class ContactComponent {
   contacts: Contact[] = [

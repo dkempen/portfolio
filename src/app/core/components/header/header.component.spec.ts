@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -11,11 +10,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        TranslateModule.forRoot(),
-        RouterModule.forRoot([]),
-        HttpClientModule,
-      ],
+      imports: [RouterModule.forRoot([])],
+      providers: [provideTranslateService()],
     });
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;

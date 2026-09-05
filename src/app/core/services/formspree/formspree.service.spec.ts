@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { HttpClientModule } from '@angular/common/http';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { FormspreeService } from './formspree.service';
 
 describe('FormspreeService', () => {
   let service: FormspreeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ imports: [HttpClientModule] });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(FormspreeService);
   });
 

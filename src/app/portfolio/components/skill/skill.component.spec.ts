@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { SkillComponent } from './skill.component';
 
 describe('SkillComponent', () => {
@@ -9,7 +9,8 @@ describe('SkillComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot()],
+      imports: [],
+      providers: [provideTranslateService()],
     });
     fixture = TestBed.createComponent(SkillComponent);
     component = fixture.componentInstance;

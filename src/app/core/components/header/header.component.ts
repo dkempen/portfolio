@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { DividerComponent } from '../../../shared/components/divider/divider.component';
 import { LanguageToggleComponent } from '../language-toggle/language-toggle.component';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
@@ -9,10 +9,9 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    TranslateModule,
+    TranslatePipe,
     ThemeToggleComponent,
     LanguageToggleComponent,
     DividerComponent,

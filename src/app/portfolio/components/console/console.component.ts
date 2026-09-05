@@ -1,12 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, firstValueFrom, interval, Subscription } from 'rxjs';
 import { StorageService } from '../../../core/services/storage/storage.service';
@@ -15,7 +8,6 @@ import { StorageService } from '../../../core/services/storage/storage.service';
   selector: 'app-console',
   templateUrl: './console.component.html',
   styleUrl: './console.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
 })
 export class ConsoleComponent implements OnInit, OnDestroy {
