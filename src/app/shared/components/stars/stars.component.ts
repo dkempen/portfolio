@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { fromEvent, throttleTime } from 'rxjs';
 
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
   styleUrl: './stars.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarsComponent implements OnInit {
   private readonly MAX_TRANSLATION = 3000;

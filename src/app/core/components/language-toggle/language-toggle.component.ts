@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Observable, firstValueFrom } from 'rxjs';
 import { Languages } from 'src/app/shared/models/languages';
 import { LanguageService } from '../../services/language/language.service';
@@ -10,8 +10,7 @@ import { LanguageService } from '../../services/language/language.service';
   selector: 'app-language-toggle',
   templateUrl: './language-toggle.component.html',
   styleUrl: './language-toggle.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TranslateModule, NgbTooltip],
+  imports: [CommonModule, TranslatePipe, NgbTooltip],
 })
 export class LanguageToggleComponent {
   language$: Observable<Languages>;

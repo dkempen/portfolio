@@ -1,5 +1,7 @@
 verifyDepsBeforeRun: install
 minimumReleaseAge: 1440
+update:
+  githubActions: true
 allowBuilds:
   "@firebase/util": true
   "@parcel/watcher": false
@@ -8,11 +10,12 @@ allowBuilds:
   msgpackr-extract: false
   protobufjs: false
 overrides:
-  "@angular/common": "^21.2.15"
-  "@angular/core": "^21.2.15"
-  "@angular/platform-browser": "^21.2.15"
-  "@angular/platform-browser-dynamic": "^21.2.15"
-  undici: "^7.24.4"
-  glob: "^13.0.6"
-  rimraf: "^6.1.3"
-  inflight: "^1.0.6"
+  "@angular/common": "^22.1.5"
+  "@angular/core": "^22.1.5"
+  "@angular/platform-browser": "^22.1.5"
+  immutable: ^5.1.8
+peerDependencyRules:
+  allowedVersions:
+    "@angular/compiler": "22"
+patchedDependencies:
+  "@angular/fire@20.0.1": patches/@angular__fire@20.0.1.patch

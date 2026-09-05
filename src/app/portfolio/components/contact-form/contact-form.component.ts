@@ -1,13 +1,7 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { LogEvent } from '../../../core/models/firebase-service';
 import { FirebaseService } from '../../../core/services/firebase/firebase.service';
@@ -18,8 +12,7 @@ import { ContactForm } from '../../../shared/models/contact-form';
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TranslateModule, FormsModule],
+  imports: [CommonModule, TranslatePipe, FormsModule],
 })
 export class ContactFormComponent implements OnInit {
   model: ContactForm = {};

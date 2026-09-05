@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HttpClientModule } from '@angular/common/http';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { LanguageToggleComponent } from './language-toggle.component';
 
 describe('LanguageToggleComponent', () => {
@@ -11,7 +10,8 @@ describe('LanguageToggleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot(), HttpClientModule, NgbTooltip],
+      imports: [NgbTooltip],
+      providers: [provideTranslateService()],
     });
     fixture = TestBed.createComponent(LanguageToggleComponent);
     component = fixture.componentInstance;

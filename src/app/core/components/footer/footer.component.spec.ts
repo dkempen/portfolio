@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -10,7 +10,8 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot(), NgbTooltip],
+      imports: [NgbTooltip],
+      providers: [provideTranslateService()],
     });
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
